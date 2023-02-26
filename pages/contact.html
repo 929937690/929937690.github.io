@@ -1,0 +1,102 @@
+<!-- contact.html: contact page -->
+
+<!-- Server-Side Includes(SSI) with base element -->
+<!--#include virtual="../common/document_head.html"-->
+
+<body>
+    <!-- flex container for whole page section -->
+    <div class="container">
+        <!-- flex container for menu section -->
+        <div class="menu_container">
+            <nav>
+                <ul>
+                    <li class="logo"><img src="images/unl_logo_spell.png" alt="unl_logo_spell" width="128"></li>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="pages/courses.html">Course</a></li>
+                    <li><a href="pages/research.html">Rsearch</a></li>
+                    <li><a href="pages/contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+        <!-- flex container for menu section ends -->
+
+        <!-- flex container for main content section -->
+        <div class="content_container">
+            <!-- Top 3 Songs section -->
+            <aside class="sidebar">
+                <h3>Top 3 Songs:</h3>
+                <ul>
+                    <li><a href="https://www.youtube.com/watch?v=fJ9rUzIMcZQ">Bohemian Rhapsody</a></li>
+                    <li><a href="https://www.youtube.com/watch?v=QkF3oxziUI4">Stairway to Heaven</a></li>
+                    <li><a href="https://www.youtube.com/watch?v=VOgFZfRVaww">Imagine</a></li>
+                </ul>
+            </aside>
+            <!-- Top 3 Songs section ends -->
+
+            <!-- contact section -->
+            <section class="content">
+                <h2>Contact Me &#128231;</h2>
+
+                <!-- Form Section -->
+                <form>
+                    <table class="FormTable">
+                        <tr>
+                            <td>Title:</td>
+                            <td><select name="title">
+                                    <option>Mr.</option>
+                                    <option>Mrs.</option>
+                                    <option>Dr.</option>
+                                    <option>Professor.</option>
+                                </select></td>
+                        </tr>
+                        <tr>
+                            <td>First Name:</td>
+                            <td><input type="text" name="firstName" size="30"></td>
+                        </tr>
+                        <tr>
+                            <td>Last Name:</td>
+                            <td><input type="text" name="lastName" size="30"></td>
+                        </tr>
+                        <tr>
+                            <td>Email:</td>
+                            <td><input type="text" name="email" size="30"></td>
+                        </tr>
+                        <tr>
+                            <td>Current enrolled at UNL</td>
+                            <td>
+                                <input type="checkbox" id="yes" name="yes" value="Yes">
+                                <label for="yes"> Yes</label>
+                                <input type="checkbox" id="no" name="no" value="No">
+                                <label for="no"> No</label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Message:</td>
+                            <td><textarea name="review" rows="5" cols="30"></textarea></td>
+                        </tr>
+                        <tr>
+                            <td>I agree to the terms and conditions</td>
+                            <td>
+                                <input type="checkbox" id="yes" name="yes" value="Yes">
+                                <label for="yes"> Yes</label>
+                                <input type="checkbox" id="no" name="no" value="No">
+                                <label for="no"> No</label>
+                            </td>
+                        </tr>
+                    </table>
+                    <input type="submit" value="Submit">
+                    <input type="reset" value="Reset">
+                </form>
+                <!-- Form Section ends -->
+            </section>
+            <!-- contact section ends -->
+        </div>
+        <!-- flex container for main content section ends -->
+
+        <!--#include virtual="../common/copy_right.html"-->
+    </div>
+    <!-- flex container for whole page section ends -->
+
+</body>
+
+</html>
