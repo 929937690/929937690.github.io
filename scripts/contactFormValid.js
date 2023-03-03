@@ -105,6 +105,7 @@ function summarizeContent(contactFormObj){
   var rate = getRadioValue();
 
   textToDisplay = 
+  "(Message Content Summary )\n" +
   "(Date: " + date + 
   ")\n" +
   "(\tName: " + salutation + firstName + " " + lastName +
