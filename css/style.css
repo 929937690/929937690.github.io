@@ -159,7 +159,22 @@ footer {
     color: darkcyan;
 }
 
-/* form sytling on the contact page */
+/* form styling on the contact page */
+.FormTable {
+    border: 2px solid #50c6db;
+    background-color: lightgray;
+    padding: 10px;
+    margin: 10px;
+    text-align: center;
+}
+
+.FormTable td,
+.FormTable th {
+    border: 1px solid #50c6db;
+    text-align: middle;
+    padding: 5px;
+}
+
 form {
     border: 2px dashed #50c6db;
     border-radius: 10px;
@@ -177,4 +192,41 @@ input[type="reset"] {
     background-color: #50c6db;
     color: white;
     cursor: pointer;
+}
+
+/* rate star styling on the contact page */
+.rate {
+    float: left;
+    height: 46px;
+    padding: 0 10px;
+}
+.rate:not(:checked) > input {
+    position:absolute;
+    top:-9999px;
+}
+.rate:not(:checked) > label {
+    float:right;
+    width:1em;
+    overflow:hidden;
+    white-space:nowrap;
+    cursor:pointer;
+    font-size:30px;
+    color:#565353;
+}
+.rate:not(:checked) > label:before {
+    content: '★ ';
+}
+.rate > input:checked ~ label {
+    color: #ffc700;    
+}
+.rate:not(:checked) > label:hover,
+.rate:not(:checked) > label:hover ~ label {
+    color: #deb217;  
+}
+.rate > input:checked + label:hover,
+.rate > input:checked + label:hover ~ label,
+.rate > input:checked ~ label:hover,
+.rate > input:checked ~ label:hover ~ label,
+.rate > label:hover ~ input:checked ~ label {
+    color: #c59b08;
 }
