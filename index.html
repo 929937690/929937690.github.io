@@ -4,72 +4,81 @@
 <html lang="en">
 
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="./css/style.css">
-  <title>Yuntao Li</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./css/style.css">
+    <script src="./scripts/background_change.js"></script>
+    <title>Yuntao Li</title>
 </head>
 
-<body>
-  <!-- flex container for whole page section -->
-  <div class="container">
-    <!-- flex container for menu section -->
-    <div class="menu_container">
-      <nav>
-        <ul>
-          <li class="logo"><img src="./images/unl_logo_spell.png" alt="unl_logo_spell" width="128"></li>
-          <li><a href="index.html">Home</a></li>
-          <li><a href="courses.html">Course</a></li>
-          <li><a href="research.html">Rsearch</a></li>
-          <li><a href="contact.html">Contact</a></li>
-        </ul>
-      </nav>
+<body id="body">
+    <!-- flex container for whole page section -->
+    <div class="container">
+        <!-- flex container for menu section -->
+        <div class="menu_container">
+            <nav>
+                <ul class="menu">
+                    <li class="logo"><img src="./images/unl_logo_spell.png" alt="unl_logo_spell" width="128"></li>
+                    <li><a href="index.html">Home</a></li>
+                    <li class="menu-item-has-children"><a href="#">About</a>
+                        <ul class="sub-menu">
+                            <li><a href="courses.html">Course</a></li>
+                            <li><a href="research.html">Research</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="contact.html">contact</a></li>
+                </ul>
+            </nav>
+        </div>
+        <!-- flex container for menu section ends -->
+
+        <!-- flex container for main content section -->
+        <div class="content_container">
+            <!-- Top 3 Songs section -->
+            <aside class="sidebar">
+                <h3>Top 3 Songs:</h3>
+                <ul>
+                    <li><a href="https://www.youtube.com/watch?v=fJ9rUzIMcZQ">Bohemian Rhapsody</a></li>
+                    <li><a href="https://www.youtube.com/watch?v=QkF3oxziUI4">Stairway to Heaven</a></li>
+                    <li><a href="https://www.youtube.com/watch?v=VOgFZfRVaww">Imagine</a></li>
+                </ul>
+                <br>
+                <h3>Background:</h3>
+                <button onclick="changeColor();">Light/Dark</button>
+            </aside>
+            <!-- Top 3 Songs section ends -->
+
+            <!-- About me section -->
+            <section class="content">
+                <img src="./images/yuntao.jpg" alt="yuntao_jpg" width="256">
+                <h2>Yuntao Li</h2>
+                <h3>Education &#128214</h3>
+                <p>B.A. 2020, <a href="https://www.unk.edu/">University of Nebraska-Kearney</a>
+                    <img style="width: 5%;" src="./images/unk_logo.png" alt="UNK logo" width="30"><br>
+                    Ph.D. student, <a href="https://www.unl.edu/">University of Nebraska-Lincoln</a>
+                    <img style="width: 4%;" src="./images/unl_logo.png" alt="UNK logo" width="30"><br>
+                </p><br>
+
+                <h3>About Me &#128512;</h3>
+                <p>I am a second year Ph.D. student in the Computer Science and Engineering
+                    Department at the University of Nebraska-Lincoln. I work as a Graduate Research Assistant in the
+                    School of Computing. </p>
+                <p>I am a part of <b>TransSafeAI research group</b> led by my advisor Dr. Dung Tran
+                    at the <b>Nimbus Lab</b> in the Deptartment of Computer Science. </p>
+                <p>My research interest include reachability analysis and robustness certification of deep neural
+                    networks
+                    (DNN), formal verification of autonomous cyber-physical systems(CPS).</p>
+                </p>
+            </section>
+            <!-- About me section ends -->
+        </div>
+        <!-- flex container for main content section ends -->
+
+        <footer>
+            Homepage &copy; 2023 Yuntao Li
+        </footer>
     </div>
-    <!-- flex container for menu section ends -->
-
-    <!-- flex container for main content section -->
-    <div class="content_container">
-      <!-- Top 3 Songs section -->
-      <aside class="sidebar">
-        <h3>Top 3 Songs:</h3>
-        <ul>
-          <li><a href="https://www.youtube.com/watch?v=fJ9rUzIMcZQ">Bohemian Rhapsody</a></li>
-          <li><a href="https://www.youtube.com/watch?v=QkF3oxziUI4">Stairway to Heaven</a></li>
-          <li><a href="https://www.youtube.com/watch?v=VOgFZfRVaww">Imagine</a></li>
-        </ul>
-      </aside>
-      <!-- Top 3 Songs section ends -->
-
-      <!-- About me section -->
-      <section class="content">
-        <img src="./images/yuntao.jpg" alt="yuntao_jpg" width="256">
-        <h2>Yuntao Li</h2>
-        <h3>Education &#128214</h3>
-        <p>B.A. 2020, <a href="https://www.unk.edu/">University of Nebraska-Kearney</a>
-          <img style="width: 5%;" src="./images/unk_logo.png" alt="UNK logo" width="30"><br>
-          Ph.D. student, <a href="https://www.unl.edu/">University of Nebraska-Lincoln</a>
-          <img style="width: 4%;" src="./images/unl_logo.png" alt="UNK logo" width="30"><br>
-        </p><br>
-
-        <h3>About Me &#128512;</h3>
-        <p>I am a second year Ph.D. student in the Computer Science and Engineering
-          Department at the University of Nebraska-Lincoln. I work as a Graduate Research Assistant in the
-          School of Computing. </p>
-        <p>I am a part of <b>TransSafeAI research group</b> led by my advisor Dr. Dung Tran
-          at the <b>Nimbus Lab</b> in the Deptartment of Computer Science. </p>
-        <p>My research interest include reachability analysis and robustness certification of deep neural networks
-          (DNN), formal verification of autonomous cyber-physical systems(CPS).</p>
-        </p>
-      </section>
-      <!-- About me section ends -->
-    </div>
-    <!-- flex container for main content section ends -->
-
-    <footer>
-      Homepage &copy; 2023 Yuntao Li
-    </footer>
-  </div>
-  <!-- flex container for whole page section ends -->
+    <!-- flex container for whole page section ends -->
 
 </body>
 
