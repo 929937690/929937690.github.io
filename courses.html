@@ -7,21 +7,26 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./css/style.css">
+    <script src="./scripts/background_change.js"></script>
     <title>Yuntao Li</title>
 </head>
 
-<body>
+<body id="body">
     <!-- flex container for whole page section -->
     <div class="container">
         <!-- flex container for menu section -->
         <div class="menu_container">
             <nav>
-                <ul>
+                <ul class="menu">
                     <li class="logo"><img src="./images/unl_logo_spell.png" alt="unl_logo_spell" width="128"></li>
                     <li><a href="index.html">Home</a></li>
-                    <li><a href="courses.html">Course</a></li>
-                    <li><a href="research.html">Rsearch</a></li>
-                    <li><a href="contact.html">Contact</a></li>
+                    <li class="menu-item-has-children"><a href="#">About</a>
+                        <ul class="sub-menu">
+                            <li><a href="courses.html">Course</a></li>
+                            <li><a href="research.html">Research</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="contact.html">contact</a></li>
                 </ul>
             </nav>
         </div>
@@ -37,6 +42,8 @@
                     <li><a href="https://www.youtube.com/watch?v=QkF3oxziUI4">Stairway to Heaven</a></li>
                     <li><a href="https://www.youtube.com/watch?v=VOgFZfRVaww">Imagine</a></li>
                 </ul>
+                <h3>Background:</h3>
+                <button onclick="changeColor();">Light/Dark</button>
             </aside>
             <!-- Top 3 Songs section ends -->
 
