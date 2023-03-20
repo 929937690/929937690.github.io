@@ -1,19 +1,31 @@
 /* style.css for all web pages */
 
+/* imports the "Montserrat" font from Google Fonts, which will be used for the 
+    website's text. */
 @import url('https://fonts.googleapis.com/css?family=Montserrat:400,500,600,700');
 
 /* global settings to remove any default padding and margins */
+/* The * selector applies the margin: 0; and padding: 0; styles to all elements, 
+    which resets the default margin and padding values for all elements to zero. */
+/* The box-sizing: border-box; style makes sure that the padding and border of an 
+    element are included in the element's total width and height, rather than 
+    being added on top of it. */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
+/* The a selector sets the text color to "inherit" and removes the underline from 
+    links, making them appear more like regular text. */
 a {
     color: inherit;
     text-decoration: none;
 }
 
+/* This block styles the body element, setting the background color to 
+light gray, the text color to a dark gray, and the font family to Montserrat, 
+with a font weight of 400. */
 body {
     background-color: lightgray;
     color: #434344;
@@ -22,6 +34,11 @@ body {
 }
 
 /* Page Layout */
+/* This block styles the container element, setting a maximum width of 850 
+pixels, centering it horizontally with auto margins, and adding padding of 
+0 on the top and bottom and 40 pixels on the left and right. It also sets 
+the display to flex and the flex-direction to column, making it a vertical 
+layout. Lastly, it sets the background color to white. */
 .container {
     max-width: 850px;
     margin: 0 auto;
@@ -32,6 +49,11 @@ body {
 }
 
 /* menu_container */
+/* This block styles the menu container element, setting the text color to a 
+light gray, adding 20 pixels of padding on the top and bottom, a 40 pixel 
+margin at the bottom, and setting the text transform to uppercase. It also 
+sets a 2 pixel solid border on the bottom and sets the display to flex with 
+the items justified space-between. */
 .menu_container {
     color: #9f9c9c;
     padding: 20px 0;
@@ -42,16 +64,24 @@ body {
     justify-content: space-between;
 }
 
+/* The .menu selector sets the menu items to display in a row, with each item 
+separated by some space. */
 .menu {
     display: flex;
 }
 
+/* This block styles the list items in the menu, setting the display to 
+block and removing the list style. It also sets the text transform to uppercase. */
 .menu li {
     display: block;
     list-style-type: none;
     text-transform: uppercase;
 }
 
+/* This block styles the links in the menu, setting the display to flex, 
+aligning the text to the center, and justifying the content to the center 
+as well. It also removes any text decoration, sets the text color to a 
+darker gray, and adds 1rem of padding. */
 .menu li a {
     display: flex;
     text-align: center;
@@ -61,11 +91,16 @@ body {
     padding: 1rem;
 }
 
+/* This block styles the links in the menu when they are hovered over, 
+setting the background color to a light gray and the text color to white. */
 .menu li a:hover {
     background: #9f9c9c;
     color: #fff;
 }
 
+/* The @media (min-width: 800px) rule applies styles only when the screen 
+width is at least 800 pixels. This rule updates the .menu selector to 
+display its items in a row and adds some other styles to the sub-menu items. */
 @media (min-width: 800px) {
     .menu {
         flex-direction: row;
@@ -73,11 +108,15 @@ body {
     }
 }
 
+/* This block styles the menu items that have children (sub-menu) and adds 
+a small arrow icon using the Genericons font. */
 .menu-item-has-children>a:after {
     font-family: 'Genericons';
     padding: 1px;
 }
 
+/* This block hides the sub-menu by default and displays it as an absolute 
+position when the screen width is at least 800px. */
 nav ul ul {
     display: none;
 }
@@ -89,12 +128,23 @@ nav ul ul {
     }
 }
 
+/* This block displays the sub-menu when a menu item is hovered over, 
+sets the color to white, and adds left padding of 1rem. */
 nav ul li:hover>ul {
     display: block;
     color: #fff;
     padding-left: 1rem;
 }
 
+/* This block styles the sub-menu when the screen width is at least 800px. 
+It removes the left padding and adds a background color of gray to the 
+sub-menu. It also changes the color of the links to white when they are 
+hovered over, displays the sub-menu items as flex items, adds right padding 
+of 2em, and changes the background color to a lighter gray when they are 
+hovered over. Additionally, it sets the margin of the third-level sub-menu 
+to the right of the parent element and adds a box shadow to it. Lastly, 
+it adds an arrow icon pointing to the right using the Genericons font to 
+the second-level sub-menu items that have children. */
 @media (min-width: 800px) {
     nav ul li:hover>ul {
         padding-left: 0;
@@ -131,11 +181,13 @@ nav ul li:hover>ul {
 }
 
 /* content_container */
-
+/* The .content_container selector styles the content area to display its items in a row. */
 .content_container {
     display: flex;
 }
 
+/* The .content selector styles the content area, giving it some padding and 
+setting its flex value to 4, which means it will take up 4/5 of the available space. */
 .content {
     flex: 4;
 }
@@ -182,6 +234,14 @@ nav ul li:hover>ul {
 }
 
 /* Sidebar */
+/* This block styles the sidebar element, adding padding of 20px, setting 
+the flex property to 1, adding a margin of 40px on the right, adding a 3px 
+solid border to the top, and setting the background color to a light gray. 
+It also styles the unordered list in the sidebar by removing the list style, 
+adding a margin on top, and setting the font size to .75rem. Additionally, 
+it styles the list items by adding padding on top and bottom. Lastly, it 
+styles the logo element by setting the font size to 2rem, adding a margin 
+on the right, and setting the color to a light blue. */
 .sidebar {
     padding: 20px;
     flex: 1;
@@ -207,6 +267,10 @@ nav ul li:hover>ul {
 }
 
 /* Footer */
+/* This block styles the footer element, setting the text color to white, 
+aligning the text to the center, adding padding on top and bottom, adding 
+a margin on top, setting the background color to a light gray, and adding 
+a 2px solid border on the top. */
 footer {
     color: #fff;
     text-align: center;
@@ -217,6 +281,12 @@ footer {
 }
 
 /* schedule table styling on the schedule page */
+/* This block styles the schedule table element, setting the font family to 
+Arial and sans-serif, collapsing the borders, setting the width to 85%, 
+adding a margin and padding of 1em each. It also styles the table cells and 
+headers by adding a 2px solid border, centering the text, and adding padding 
+of 6px. Additionally, it styles the even rows by setting the background color 
+to light gray and the text color to a darker cyan. */
 .ScheduleTable {
     font-family: arial, sans-serif;
     border-collapse: collapse;
@@ -238,6 +308,15 @@ footer {
 }
 
 /* form styling on the contact page */
+/* This block of CSS styles a form table with a border of 2px solid #50c6db, 
+a light gray background color, padding of 10px, and a margin of 10px. It also 
+styles the table cells and headers with a 1px solid border, centered text 
+alignment, and padding of 5px. Additionally, it styles the form element with 
+a 2px dashed border of #50c6db, a border-radius of 10px, centered text alignment, 
+and an inline-block display. It also styles the submit and reset buttons with 
+a width of 25%, padding of 5px, margin of 10px on top and bottom, border-radius 
+of 10px, no border, a background color of #50c6db, white text color, and a 
+cursor pointer. */
 .FormTable {
     border: 2px solid #50c6db;
     background-color: lightgray;
@@ -273,6 +352,16 @@ input[type="reset"] {
 }
 
 /* rate star styling on the contact page */
+/* This block styles a rating system by floating the rating element to the left, 
+setting its height to 46px, and adding left and right padding of 10px. It also 
+styles the unchecked rating elements by positioning the input element off-screen, 
+floating the label to the right, setting its width to 1em, and hiding overflow 
+and white space. It also sets the cursor to a pointer, sets the font size to 30px, 
+and sets the color to a dark gray. Additionally, it adds a star symbol before the 
+label. It styles the checked rating elements by setting the color to a yellow. 
+Lastly, it styles the unchecked rating elements when hovered over by changing the 
+color to a lighter gray, and styles the checked rating elements when hovered over 
+by changing the color to a darker gray. */
 .rate {
     float: left;
     height: 46px;
