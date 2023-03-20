@@ -55,13 +55,14 @@ body {
 .menu li a {
     display: flex;
     text-align: center;
+    justify-content: center;
     text-decoration: none;
     color: #777;
     padding: 1rem;
 }
 
 .menu li a:hover {
-    background: #777;
+    background: #9f9c9c;
     color: #fff;
 }
 
@@ -91,7 +92,7 @@ nav ul ul {
 nav ul li:hover>ul {
     display: block;
     color: #fff;
-    padding-left: 2rem;
+    padding-left: 1rem;
 }
 
 @media (min-width: 800px) {
