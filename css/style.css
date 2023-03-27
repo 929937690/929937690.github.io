@@ -98,10 +98,10 @@ setting the background color to a light gray and the text color to white. */
     color: #fff;
 }
 
-/* The @media (min-width: 800px) rule applies styles only when the screen 
+/* The @media (min-width: 1000px) rule applies styles only when the screen 
 width is at least 800 pixels. This rule updates the .menu selector to 
 display its items in a row and adds some other styles to the sub-menu items. */
-@media (min-width: 800px) {
+@media (min-width: 1000px) {
     .menu {
         flex-direction: row;
         justify-content: space-between;
@@ -121,7 +121,7 @@ nav ul ul {
     display: none;
 }
 
-@media (min-width: 800px) {
+@media (min-width: 1000px) {
     nav ul ul {
         display: none;
         position: absolute;
@@ -145,7 +145,7 @@ hovered over. Additionally, it sets the margin of the third-level sub-menu
 to the right of the parent element and adds a box shadow to it. Lastly, 
 it adds an arrow icon pointing to the right using the Genericons font to 
 the second-level sub-menu items that have children. */
-@media (min-width: 800px) {
+@media (min-width: 1000px) {
     nav ul li:hover>ul {
         padding-left: 0;
         background: #777;
