@@ -101,7 +101,7 @@ setting the background color to a light gray and the text color to white. */
 /* The @media (min-width: 1000px) rule applies styles only when the screen 
 width is at least 800 pixels. This rule updates the .menu selector to 
 display its items in a row and adds some other styles to the sub-menu items. */
-@media screen and (min-width: 1200px){
+@media (max-width: 700px) {
     .menu {
         flex-direction: row;
         justify-content: space-between;
