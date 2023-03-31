@@ -5,7 +5,7 @@ function changeColor() {
   if (colorIndex >= colors.length) {
     colorIndex = 0;
   }
-  // col.style.backgroundColor = colors[colorIndex];
-  col.classList.toggle("dark-mode");
+  col.style.backgroundColor = colors[colorIndex];
+  // col.classList.toggle("dark-mode");
   colorIndex++;
 }
