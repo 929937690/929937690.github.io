@@ -1,0 +1,155 @@
+/* Style for the back-to-top button */
+#btn-back-to-top {
+    position: fixed;      /* Fixed position */
+    bottom: 20px;         /* 20px from the bottom */
+    right: 20px;          /* 20px from the right */
+    display: none;        /* Initially hidden */
+}
+
+/* Scroll behavior for smooth scrolling */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Remove default quotes for blockquote and q elements */
+blockquote, q {
+    quotes: none;
+}
+
+/* Remove content before and after blockquote and q elements */
+blockquote::before, blockquote::after, q::before, q::after {
+    content: "";
+    content: none;
+}
+
+/* Style for blockquote element */
+blockquote {
+    background: #f9f9f9;                 /* Light gray background */
+    border-left: 10px solid #d4a259;     /* Left border with a solid color */
+    color: #333;                         /* Dark text color */
+    font-family: "Crimson Text", serif;  /* Font family */
+    font-size: 1.5rem;                   /* Font size */
+    line-height: 1;                      /* Line height */
+    margin: 1em 0;                       /* Margin */
+    padding: 1em 1em;                    /* Padding */
+    text-align: left;                    /* Text alignment */
+    quotes: "\201C" "\201D" "\2018" "\2019"; /* Define quotes for the element */
+}
+
+/* Style for blockquote opening quote */
+blockquote:before {
+    color: #d4a259;          /* Quote color */
+    content: open-quote;     /* Insert opening quote */
+    font-size: 4em;          /* Quote font size */
+    line-height: 0.1em;      /* Line height */
+    margin-right: 0.25em;    /* Right margin */
+    vertical-align: -0.4em;  /* Vertical alignment */
+}
+
+/* Inline display for paragraph within blockquote */
+blockquote p {
+    display: inline;
+}
+
+/* Style for small text and citation within blockquote */
+blockquote small, blockquote cite {
+    color: #666;                          /* Light gray text color */
+    display: block;                       /* Block display */
+    font-family: "Karla", sans-serif;     /* Font family */
+    font-size: 1.2rem;                    /* Font size */
+    font-style: italic;                   /* Italic font style */
+    font-weight: normal;                  /* Normal font weight */
+    line-height: 1;                       /* Line height */
+    margin-top: 0.5em;                    /* Top margin */
+    text-align: right;                    /* Right-aligned text */
+}
+
+
+
+/* #btn-dark-light {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    display: none;
+  } */
+
+
+/* blockquote,q {
+    quotes: none
+}
+
+blockquote:before,blockquote:after,q:before,q:after {
+    content: "";
+    content: none
+}
+
+blockquote {
+    color: #1d1d1d;
+    font-family: "Crimson Text",serif;
+    font-size: 2rem;
+    line-height: 1.25;
+    margin: 0 0 1.25em;
+    padding-top: 45px;
+    position: relative;
+    text-align: center
+}
+
+blockquote:before {
+    color: #d4a259;
+    content: "\201C";
+    display: block;
+    font-size: 72px;
+    left: 50%;
+    line-height: 1;
+    position: absolute;
+    top: 0;
+    -webkit-transform: translateX(-50%);
+    transform: translateX(-50%)
+}
+
+blockquote p {
+    margin-bottom: 0.5em
+}
+
+blockquote p:last-child {
+    margin-bottom: 0
+}
+
+blockquote small,blockquote cite {
+    color: #aaa;
+    display: block;
+    font-family: "Karla",sans-serif;
+    font-size: 0.5em;
+    font-style: normal;
+    font-weight: normal;
+    line-height: 1.66667;
+    margin-top: 1em
+}
+
+@media only screen and (min-width: 1086px) {
+    blockquote,.kg-gallery-card {
+        margin-left:calc(510px - 47vw);
+        margin-right: calc(510px - 47vw)
+    }
+
+    .post-full .post-thumbnail,.post-content img[src$='#wide'],.post-content img[src$='#full'],.kg-width-wide .kg-image,.kg-width-full .kg-image {
+        margin-left: calc(510px - 47vw);
+        margin-right: calc(510px - 47vw);
+        max-width: none;
+        width: calc(94vw - 300px)
+    }
+}
+
+@media only screen and (min-width: 1469px) {
+    blockquote,.kg-gallery-card {
+        margin-left:-180px;
+        margin-right: -180px
+    }
+
+    .post-full .post-thumbnail,.post-content img[src$='#wide'],.post-content img[src$='#full'],.kg-width-wide .kg-image,.kg-width-full .kg-image {
+        margin-left: -180px;
+        margin-right: -180px;
+        max-width: none;
+        width: 1080px
+    }
+} */
