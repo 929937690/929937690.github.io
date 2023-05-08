@@ -1,86 +1,508 @@
-<!-- index.html: home page -->
-
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="./css/style.css">
-    <script src="./scripts/background_change.js"></script>
-    <title>Yuntao Li</title>
+	<!-- Meta tags for character encoding and viewport settings -->
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<meta name="description" content="">
+	<meta name="author" content="">
+
+	<!-- Page title -->
+	<title>Yuntao Li's Homepage</title>
+
+	<!-- Linking to external CSS files -->
+	<link href="static/css/bootstrap.min.css" rel="stylesheet">
+	<link href="static/css/css.css" rel="stylesheet">
+	<link href="static/css/css1.css" rel="stylesheet">
+	<link href="static/css/all.min.css" rel="stylesheet">
+	<link href="static/css/academicons.min.css" rel="stylesheet">
+	<link href="static/css/resume.min.css" rel="stylesheet">
+	<link href="static/css/main.css" rel="stylesheet">
 </head>
 
-<body id="body">
-    <!-- flex container for whole page section -->
-    <div class="container">
-        <!-- flex container for menu section -->
-        <div class="menu_container">
-            <nav>
-                <ul class="menu">
-                    <li class="logo"><img src="./images/unl_logo_spell.png" alt="unl_logo_spell" width="128"></li>
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="courses.html">Course</a></li>
-                    <li><a href="research.html">Research</a></li>
-                    <!-- <li class="menu-item-has-children"><a href="#">About</a>
-                        <ul class="sub-menu">
-                            <li><a href="courses.html">Course</a></li>
-                            <li><a href="research.html">Research</a></li>
-                        </ul>
-                    </li> -->
-                    <li><a href="contact.html">contact</a></li>
-                </ul>
-            </nav>
-        </div>
-        <!-- flex container for menu section ends -->
+<body id="page-top">
+	<!-- Navigation bar -->
+	<nav class="navbar navbar-expand-lg navbar-dark bg-bar fixed-top" id="sideNav">
+		<!-- Logo and brand -->
+		<a class="navbar-brand js-scroll-trigger" href="#page-top">
+			<span class="d-block d-lg-none">Yuntao Li</span>
+			<span class="d-none d-lg-block">
+				<img class="img-fluid img-profile rounded-circle mx-auto mb-2" src="static/picture/greylyt.jpg" alt="">
+			</span>
+		</a>
+		<!-- Navigation bar toggler -->
+		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+			aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+		<!-- Navigation links -->
+		<div class="collapse navbar-collapse" id="navbarSupportedContent">
+			<ul class="navbar-nav">
+				<li class="nav-item">
+					<a class="nav-link js-scroll-trigger" href="#about">About</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link js-scroll-trigger" href="#news">News</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link js-scroll-trigger" href="#projects">Projects</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link js-scroll-trigger" href="#publications">Publications</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link js-scroll-trigger" href="#service">Service</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link js-scroll-trigger" href="#courses">Courses</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link js-scroll-trigger" href="#contact">contact</a>
+				</li>
+			</ul>
+		</div>
+		<!-- UNL SOC logo -->
+		<span class="d-none d-lg-block">
+			<img class="img-fluid img-profile align-top mx-auto col-lg-5 mb-5 pb-5" width="100"
+				src="static/picture/unl_soc1.png" alt="">
+		</span>
+	</nav>
+	<!-- End of Navigation bar -->
 
-        <!-- flex container for main content section -->
-        <div class="content_container">
-            <!-- Top 3 Songs section -->
-            <aside class="sidebar">
-                <h3>Top 3 Songs:</h3>
-                <ul>
-                    <li><a href="https://www.youtube.com/watch?v=fJ9rUzIMcZQ">Bohemian Rhapsody</a></li>
-                    <li><a href="https://www.youtube.com/watch?v=QkF3oxziUI4">Stairway to Heaven</a></li>
-                    <li><a href="https://www.youtube.com/watch?v=VOgFZfRVaww">Imagine</a></li>
-                </ul>
-                <br>
-                <h3>Background:</h3>
-                <button onclick="changeColor();">Light/Dark</button>
-            </aside>
-            <!-- Top 3 Songs section ends -->
+	<!-- Main container -->
+	<div id="main-container" class="container-fluid p-0">
 
-            <!-- About me section -->
-            <section class="content">
-                <img src="./images/yuntao.jpg" alt="yuntao_jpg" width="256">
-                <h2>Yuntao Li</h2>
-                <h3>Education &#128214</h3>
-                <p>B.A. 2020, <a href="https://www.unk.edu/">University of Nebraska-Kearney</a>
-                    <img style="width: 5%;" src="./images/unk_logo.png" alt="UNK logo" width="30"><br>
-                    Ph.D. student, <a href="https://www.unl.edu/">University of Nebraska-Lincoln</a>
-                    <img style="width: 4%;" src="./images/unl_logo.png" alt="UNK logo" width="30"><br>
-                </p><br>
+		<!-- About section -->
+		<section class="resume-section p-3 p-lg-5 d-flex align-items-center" id="about">
+			<!-- About content -->
+			<div class="w-100">
+				<h1 class="mb-3">Yuntao
+					<span class="text-primary">Li</span>
+				</h1>
+				<div class="subheading mb-5">
+					Second Year Ph.D. student<br>
+					Nimbus Lab<br>
+					UNL School of Computing <br>
+					223 Schorr center, Lincoln, NE 68508<br>
+					<a href="">yli120 [at] huskers [dot] unl [dot] edu</a>
+				</div>
 
-                <h3>About Me &#128512;</h3>
-                <p>I am a second year Ph.D. student in the Computer Science and Engineering
-                    Department at the University of Nebraska-Lincoln. I work as a Graduate Research Assistant in the
-                    School of Computing. </p>
-                <p>I am a part of <b>TransSafeAI research group</b> led by my advisor Dr. Dung Tran
-                    at the <b>Nimbus Lab</b> in the Deptartment of Computer Science. </p>
-                <p>My research interest include reachability analysis and robustness certification of deep neural
-                    networks
-                    (DNN), formal verification of autonomous cyber-physical systems(CPS).</p>
-                </p>
-            </section>
-            <!-- About me section ends -->
-        </div>
-        <!-- flex container for main content section ends -->
+				<blockquote>
+					<p>Learn as if you will live forever, live like you will die tomorrow.
+						<cite>- Mahatma Gandhi</cite>
+					</p>
+				</blockquote>
 
-        <footer>
-            Homepage &copy; 2023 Yuntao Li
-        </footer>
-    </div>
-    <!-- flex container for whole page section ends -->
+				<p class="lead mb-5">
+					I am a second year Ph.D. student in the Computer Science and Engineering Department at the
+					University of Nebraska-Lincoln. I work as a Graduate Research Assistant in the School of Computing.
+					I am a part of <strong><a href="https://sites.google.com/view/v2a2/about"> TransSafeAI research
+							group</a></strong> led by my advisor <a href="https://sites.google.com/view/v2a2/about"> Dr.
+						Dung Tran</a> at the <strong><a href="https://nimbus.unl.edu/"> Nimbus Lab</a></strong> in the
+					Deptartment of Computer Science. I am also co-advised by <a
+						href="https://scholar.google.com/citations?user=dA88kLYAAAAJ&hl=en"> Dr. Marilyn Wolf</a>. My
+					research interest include verifying deep neural networks and learning‑enabled cyber‑physical
+					systems, and formal techniques for modeling, recognizing, localizing, and mitigating cyberattacks in
+					autonomous systems built based on robotic operating systems (ROS).
+					<br><br>
+
+					Before joining UNL, I earned a B.S. degree in Computer Science from University of Nebraska-Kearney.
+				</p>
+
+				<div class="social-icons">
+					<a href="https://scholar.google.com/citations?user=_RzS3uMAAAAJ&hl=en">
+						<i class="ai ai-google-scholar"></i>
+					</a>
+					<a href="https://scholar.google.com/citations?user=_RzS3uMAAAAJ&hl=en">
+						<i class="ai ai-researchgate"></i>
+					</a>
+					<a href="https://www.linkedin.com/in/yuntaoliy3/">
+						<i class="fab fa-linkedin-in"></i>
+					</a>
+					<a href="https://github.com/929937690">
+						<i class="fab fa-github"></i>
+					</a>
+				</div>
+
+				<br>
+				<script type="text/javascript" id="clustrmaps"
+					src="//clustrmaps.com/map_v2.js?d=35S7_DfXmS1UVeD6Mp0hjzw2xoUWxjQufDzaT2m2ktE"></script>
+				<br>
+			</div>
+		</section>
+		<!-- End of About section -->
+
+
+		<!-- News section -->
+		<hr class="m-0">
+
+		<section class="resume-section-short p-3 p-lg-5 d-flex justify-content-center" id="news">
+			<!-- News content -->
+			<div class="w-100">
+				<h2 class="mb-5">News</h2>
+				<div class="resume-item d-flex flex-column flex-md-row justify-content-between mb-5">
+					<div class="resume-section">
+						<ul>
+							<!-- News items -->
+							<li>2023: Two papers are accepted by HSCC 2023!</li>
+							<li>2023: One paper is accepted by FormaLISE 2023! Congratulations to Michael Ivashchenko!
+							</li>
+							<li>2023: One paper is accepted by ACM-TECS 2023! Congratulations to SungWoo Choi!</li>
+							<br>
+							<a data-toggle="collapse" href="#old-news" role="button" aria-expanded="false"
+								aria-controls="collapseExample">
+								>> older news...
+							</a>
+							<!-- Older news items (collapsed) -->
+							<div class="collapse" id="old-news">
+								<li>08/2021: I joined the Nimbus Lab at the University of Nebraska-Lincoln under
+									the supervision of <a href="https://sites.google.com/view/v2a2/about"> Dr. Dung
+										Tran</a>.
+								</li>
+							</div>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</section>
+		<!-- End of News section -->
+
+		<!-- Projects section -->
+		<hr class="m-0">
+
+		<section class="resume-section-short p-3 p-lg-5 d-flex justify-content-center" id="projects">
+			<!-- Projects content -->
+			<div class="w-100">
+				<h2 class="mb-5">Projects</h2>
+				<div class="resume-item d-flex flex-column flex-md-row justify-content-between mb-5">
+					<div class="resume-section">
+						<div class="row">
+							<!-- Project cards -->
+							<div class="row">
+								<div class="col-sm-4">
+									<div class="card" style="width: 18rem;">
+										<img src="static/picture/unl_logo1.png" class="card-img-top" alt="...">
+										<div class="card-body">
+											<h3 class="card-title">NNV</h3>
+											<p class="card-text">Matlab toolbox for Neural Network Verification, using
+												reachability methods for analyzing neural networks, particularly
+												focusing on
+												closed‑loop controllers in autonomous Cyber‑Physical Systems (CPS).</p>
+											<a href="https://github.com/verivital/nnv"
+												class="btn btn-outline-dark btn-floating btn-lg">GITHUB REPO</a>
+										</div>
+									</div>
+								</div>
+								<div class="col-sm-4">
+									<div class="card" style="width: 18rem;">
+										<img src="static/picture/unl_logo1.png" class="card-img-top" alt="...">
+										<div class="card-body">
+											<h3 class="card-title">StarV</h3>
+											<p class="card-text">Python toolbox for Event‑driven Monitoring and
+												Verification
+												Codesign for Distributed Learning‑enabled Cyber‑Physical Systems with
+												Star
+												Reachability.
+											</p>
+											<a href="https://github.com/V2A2/StarV"
+												class="btn btn-outline-dark btn-floating btn-lg">GITHUB REPO</a>
+										</div>
+									</div>
+								</div>
+								<div class="col-sm-4">
+									<div class="card" style="width: 18rem;">
+										<img src="static/picture/unl_logo1.png" class="card-img-top" alt="...">
+										<div class="card-body">
+											<h3 class="card-title">ROS Defender</h3>
+											<p class="card-text">Python toolbox for modeling, recognizing, localizing,
+												and
+												mitigating cyberattacks in autonomous systems based on robotic operating
+												systems (ROS)</p>
+											<a href="#" class="btn btn-outline-dark btn-floating btn-lg">NOT
+												AVAILIBLE</a>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+		</section>
+		<!-- End of Projects section -->
+
+
+		<!-- Start of Publications Section -->
+		<hr class="m-0">
+
+		<section class="resume-section p-3 p-lg-5 d-flex align-items-center" id="publications">
+			<!-- Publications content -->
+			<div class="w-100">
+				<h2 class="mb-5">Publications</h2>
+
+				<div class="resume-item d-flex flex-column flex-md-row justify-content-between mb-5">
+					<div class="resume-section">
+						<ul>
+							<li class="mb-3"><strong>Probabilistic Star Temporal Logic</strong>;
+								Hoang Dung Tran, SungWoo Choi, Hideki Okamoto, Bardh Hoxha, Georgios Fainekos, and Danil
+								Prokhorov;
+								CAV, 2023. <strong>(Under Preparation)</strong>
+							</li>
+							<li class="mb-3"><strong>Verification of Recurrent Neural Networks using Star
+									Reachability</strong>;
+								Hoang Dung Tran, SungWoo Choi, Tomoya Yamaguchi, Bardh Hoxha, and Danil Prokhorov;
+								HSCC, 2023. <strong>(To Appear)</strong>
+							</li>
+							<li class="mb-3"><strong>Quantitative Verification of Neural Networks using
+									ProbStars</strong>;
+								Hoang Dung Tran, SungWoo Choi, Hideki Okamoto, Bardh Hoxha, Georgios Fainekos, and Danil
+								Prokhorov;
+								HSCC, 2023. <strong>(To Appear)</strong>
+							</li>
+							<li class="mb-3"><strong>Vision-based safety monitoring for human-construction robot
+									systems</strong>;
+								Apala Pramanik, Yuntao Li, Kyungki Kim, and Hoang-Dung Tran;
+								IROS, 2023. <strong>(Under Preparation)</strong>
+							</li>
+							<li class="mb-3"><strong>Verification of Binary Neural Networks</strong>;
+								Michael Ivashchenko, SungWoo Choi, Luan Viet Nguyen, Stanley Bak, and Hoang-Dung Tran;
+								FormaLISE, 2023. <strong>(To Appear)</strong>
+							</li>
+							<li class="mb-3"><strong>Reachability Analysis of Sigmoidal Neural Networks</strong>;
+								SungWoo Choi, Michael Ivashchenko, Luan Viet Nguyen, and Hoang-Dung Tran;
+								ACM-TECS, 2023. <strong>(To Appear)</strong>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</section>
+		<!-- End of Publications Section -->
+
+
+		<!-- Start of Service Section -->
+		<hr class="m-0">
+
+		<section class="resume-section-short p-3 p-lg-5 d-flex justify-content-center" id="service">
+			<!-- Service content -->
+			<div class="w-100">
+				<h2 class="mb-5">Service</h2>
+
+				<div class="resume-item d-flex flex-column flex-md-row justify-content-between mb-5">
+					<div class="resume-section">
+						<strong>Reviewer:</strong>
+						<ul>
+							<li>2023: IEEE ETHICS</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</section>
+		<!-- End of Service Section -->
+
+
+		<!-- Start of Courses Section -->
+		<hr class="m-0">
+
+		<section class="resume-section-short p-3 p-lg-5 d-flex justify-content-center" id="courses">
+			<!-- Courses content -->
+			<div class="w-100">
+				<h2 class="mb-5">Courses</h2>
+
+				<div class="resume-item d-flex flex-column flex-md-row justify-content-between mb-5">
+					<div class="resume-section">
+						<ol>
+							<li><strong>Fall 2021</strong>
+								<ul>
+									<li>
+										<strong><a href="https://catalog.unl.edu/undergraduate/courses/csce/">CSCE 823
+											</a></strong> Design and Analysis of Algorithms
+									</li>
+									<li>
+										<strong><a href="https://catalog.unl.edu/undergraduate/courses/csce/">CSCE 892
+											</a></strong> Deep Learning and Assured Autonomy Analysis
+									</li>
+									<li>
+										<strong><a href="https://catalog.unl.edu/undergraduate/courses/csce/">CSCE 996
+											</a></strong> Research Other Than Thesis
+									</li>
+								</ul>
+							</li>
+							<li><strong>Spring 2022</strong>
+								<ul>
+									<li>
+										<strong><a href="https://catalog.unl.edu/undergraduate/courses/csce/">CSCE 851
+											</a></strong> Operating Systems Principles
+									</li>
+									<li>
+										<strong><a href="https://catalog.unl.edu/undergraduate/courses/csce/">CSCE 860
+											</a></strong> Software Engineering for Robotics
+									</li>
+									<li>
+										<strong><a href="https://catalog.unl.edu/undergraduate/courses/csce/">CSCE 991
+											</a></strong> Direct Doctoral Research
+									</li>
+								</ul>
+							</li>
+							<li><strong>Fall 2022</strong>
+								<ul>
+									<li>
+										<strong><a href="https://catalog.unl.edu/undergraduate/courses/csce/">CSCE 828
+											</a></strong> Automata, Computation, and Formal Languages
+									</li>
+									<li>
+										<strong><a href="https://catalog.unl.edu/undergraduate/courses/csce/">CSCE 996
+											</a></strong> Multi Access Edge Computing
+									</li>
+									<li>
+										<strong><a href="https://catalog.unl.edu/undergraduate/courses/csce/">CSCE 996
+											</a></strong> Research Other Than Thesis
+									</li>
+								</ul>
+							</li>
+							<li><strong>Spring 2023</strong>
+								<ul>
+									<li>
+										<strong><a href="https://catalog.unl.edu/undergraduate/courses/csce/">CSCE 810
+											</a></strong> Information Retrieval System
+									</li>
+									<li>
+										<strong><a href="https://catalog.unl.edu/undergraduate/courses/csce/">CSCE 864
+											</a></strong> Internet System & Programming
+									</li>
+									<li>
+										<strong><a href="https://catalog.unl.edu/undergraduate/courses/csce/">CSCE 990
+											</a></strong> Computational Linguistics
+									</li>
+								</ul>
+							</li>
+						</ol>
+					</div>
+				</div>
+			</div>
+		</section>
+		<!-- End of Courses Section -->
+
+
+		<!-- Start of Contact Section -->
+		<hr class="m-0">
+
+		<section class="resume-section-short p-3 p-lg-5 d-flex justify-content-center" id="contact">
+			<!-- Contact content -->
+			<div class="w-100">
+				<h2 class="mb-5">Contact</h2>
+
+				<div class="resume-item d-flex flex-column flex-md-row justify-content-between mb-5">
+					<div class="resume-section">
+						<!--Section description-->
+						<p class="text-center w-responsive mx-auto mb-5">Do you have any questions? Please do not
+							hesitate to contact us directly. I will come back to you soon to help you.</p>
+
+						<div class="row">
+
+							<!--Grid column-->
+							<div class="col-md-9 mb-md-0 mb-5">
+								<form id="contact-form" name="contact-form" enctype="text/plain"
+									action="https://docs.google.com/forms/d/1B5vqeHI4p7AHUM1GV46Qkl02BBs6PqhEfN5fYT8bJ7M/formResponse?"
+									target="hidden_iframe" onsubmit="submitted=true;">
+									<!--Grid row-->
+									<div class="row">
+										<!--Grid column-->
+										<div class="col-md-6">
+											<div class="md-form mb-0">
+												<input type="text" name="entry.180434444" id="entry.180434444" class="form-control" required>
+												<label for="name" class="">Your name</label>
+											</div>
+										</div>
+										<!--Grid column-->
+										<!--Grid column-->
+										<div class="col-md-6">
+											<div class="md-form mb-0">
+												<input type="text" name="entry.2054613960" id="entry.2054613960" class="form-control" required>
+												<label for="email" class="">Your email</label>
+											</div>
+										</div>
+										<!--Grid column-->
+									</div>
+									<!--Grid row-->
+
+									<!--Grid row-->
+									<div class="row">
+										<div class="col-md-12">
+											<div class="md-form mb-0">
+												<input type="text" name="entry.255762301" id="entry.255762301" class="form-control" required>
+												<label for="subject" class="">Subject</label>
+											</div>
+										</div>
+									</div>
+									<!--Grid row-->
+
+									<!--Grid row-->
+									<div class="row">
+										<!--Grid column-->
+										<div class="col-md-12">
+											<div class="md-form">
+												<textarea type="text" name="entry.5567644" id="entry.5567644" rows="2"
+													class="form-control md-textarea" required></textarea>
+												<label for="message">Your message</label>
+											</div>
+
+										</div>
+									</div>
+									<!--Grid row-->
+								</form>
+								
+								<br>
+								<div class="text-center text-md-left">
+									<a class="fa fa-paper-plane fa-2x" onclick="submitFormAndReset();"></a>
+								</div>
+								
+								<iframe name="hidden_iframe" id="hidden_iframe" style="display:none;"
+									onload="if(submitted) {}"></iframe>
+							</div>
+							<!--Grid column-->
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+		<!-- End of Contact Section -->
+
+	</div>
+	<!-- End of Main Content -->
+
+	<!-- Back-to-Top Button -->
+	<button type="button" class="btn btn-outline-dark btn-floating btn-lg" id="btn-back-to-top">
+		<i class="fas fa-arrow-up"></i>
+	</button>
+	<!-- End of Back-to-Top Button -->
+
+	<!-- <button id="toggleBackgroundButton">Toggle Background Color</button> -->
+
+	<!-- <button type="button" class="fas fa-cloud-sun fa-2x" id="btn-dark-light"> </button> -->
+	<!-- <div id="colorMode">
+		<a id="btn-dark-light" type="button" class="fas fa-cloud-sun fa-2x"
+		onclick="chBackcolor('grey');"></a>
+	</div> -->
+
+	<!-- Bootstrap core JavaScript -->
+	<script src="static/js/jquery.min.js"></script>
+	<script src="static/js/bootstrap.bundle.min.js"></script>
+
+	<!-- Plugin JavaScript -->
+	<script src="static/js/jquery.easing.min.js"></script>
+
+	<!-- Custom scripts for this template -->
+	<script src="static/js/resume.min.js"></script>
+	<script src="static/js/main.js"></script>
+
+	<script type="text/javascript">var submitted = false;</script>
+	<script type="text/javascript">
+		$('#contact-form').on('submit', function (e) {
+			// $('#gform *').fadeOut(2000);
+			$('#contact-form').append('Your submission has been processed...');
+		});
+	</script>
 
 </body>
 
