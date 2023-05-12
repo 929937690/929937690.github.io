@@ -31,9 +31,9 @@ function backToTop() {
 
 // Function that toggles the background color of the container
 function toggleBackgroundColor() {
-  document.getElementById('toggleBackgroundButton').addEventListener('click', function() {
-      const container = document.querySelector('.container-fluid');
-      container.classList.toggle('grey-background');
+  document.getElementById('toggleBackgroundButton').addEventListener('click', function () {
+    const container = document.querySelector('.container-fluid');
+    container.classList.toggle('grey-background');
   });
 }
 
@@ -45,12 +45,12 @@ function submitFormAndReset() {
   const form = document.getElementById('contact-form');
   // Check if the form is valid
   if (form.checkValidity()) {
-      // If the form is valid, submit and reset the form
-      form.submit();
-      form.reset();
+    // If the form is valid, submit and reset the form
+    form.submit();
+    form.reset();
   } else {
-      // If the form is not valid, display validation error messages
-      form.reportValidity();
+    // If the form is not valid, display validation error messages
+    form.reportValidity();
   }
 }
 
