@@ -618,7 +618,8 @@ pre code {
 }
 
 .container-fluid.grey-background {
-    background-color: #666; /* Change this to your desired grey color */
+    background-color: #666;
+    /* Change this to your desired grey color */
 }
 
 .row {

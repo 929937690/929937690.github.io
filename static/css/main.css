@@ -1,9 +1,13 @@
 /* Style for the back-to-top button */
 #btn-back-to-top {
-    position: fixed;      /* Fixed position */
-    bottom: 20px;         /* 20px from the bottom */
-    right: 20px;          /* 20px from the right */
-    display: none;        /* Initially hidden */
+    position: fixed;
+    /* Fixed position */
+    bottom: 20px;
+    /* 20px from the bottom */
+    right: 20px;
+    /* 20px from the right */
+    display: none;
+    /* Initially hidden */
 }
 
 /* Scroll behavior for smooth scrolling */
@@ -12,38 +16,58 @@ html {
 }
 
 /* Remove default quotes for blockquote and q elements */
-blockquote, q {
+blockquote,
+q {
     quotes: none;
 }
 
 /* Remove content before and after blockquote and q elements */
-blockquote::before, blockquote::after, q::before, q::after {
+blockquote::before,
+blockquote::after,
+q::before,
+q::after {
     content: "";
     content: none;
 }
 
 /* Style for blockquote element */
 blockquote {
-    background: #f9f9f9;                 /* Light gray background */
-    border-left: 10px solid #d4a259;     /* Left border with a solid color */
-    color: #333;                         /* Dark text color */
-    font-family: "Crimson Text", serif;  /* Font family */
-    font-size: 1.5rem;                   /* Font size */
-    line-height: 1;                      /* Line height */
-    margin: 1em 0;                       /* Margin */
-    padding: 1em 1em;                    /* Padding */
-    text-align: left;                    /* Text alignment */
-    quotes: "\201C" "\201D" "\2018" "\2019"; /* Define quotes for the element */
+    background: #f9f9f9;
+    /* Light gray background */
+    border-left: 10px solid #d4a259;
+    /* Left border with a solid color */
+    color: #333;
+    /* Dark text color */
+    font-family: "Crimson Text", serif;
+    /* Font family */
+    font-size: 1.5rem;
+    /* Font size */
+    line-height: 1;
+    /* Line height */
+    margin: 1em 0;
+    /* Margin */
+    padding: 1em 1em;
+    /* Padding */
+    text-align: left;
+    /* Text alignment */
+    quotes: "\201C" "\201D" "\2018" "\2019";
+    /* Define quotes for the element */
 }
 
 /* Style for blockquote opening quote */
 blockquote:before {
-    color: #d4a259;          /* Quote color */
-    content: open-quote;     /* Insert opening quote */
-    font-size: 4em;          /* Quote font size */
-    line-height: 0.1em;      /* Line height */
-    margin-right: 0.25em;    /* Right margin */
-    vertical-align: -0.4em;  /* Vertical alignment */
+    color: #d4a259;
+    /* Quote color */
+    content: open-quote;
+    /* Insert opening quote */
+    font-size: 4em;
+    /* Quote font size */
+    line-height: 0.1em;
+    /* Line height */
+    margin-right: 0.25em;
+    /* Right margin */
+    vertical-align: -0.4em;
+    /* Vertical alignment */
 }
 
 /* Inline display for paragraph within blockquote */
@@ -52,16 +76,26 @@ blockquote p {
 }
 
 /* Style for small text and citation within blockquote */
-blockquote small, blockquote cite {
-    color: #666;                          /* Light gray text color */
-    display: block;                       /* Block display */
-    font-family: "Karla", sans-serif;     /* Font family */
-    font-size: 1.2rem;                    /* Font size */
-    font-style: italic;                   /* Italic font style */
-    font-weight: normal;                  /* Normal font weight */
-    line-height: 1;                       /* Line height */
-    margin-top: 0.5em;                    /* Top margin */
-    text-align: right;                    /* Right-aligned text */
+blockquote small,
+blockquote cite {
+    color: #666;
+    /* Light gray text color */
+    display: block;
+    /* Block display */
+    font-family: "Karla", sans-serif;
+    /* Font family */
+    font-size: 1.2rem;
+    /* Font size */
+    font-style: italic;
+    /* Italic font style */
+    font-weight: normal;
+    /* Normal font weight */
+    line-height: 1;
+    /* Line height */
+    margin-top: 0.5em;
+    /* Top margin */
+    text-align: right;
+    /* Right-aligned text */
 }
 
 
