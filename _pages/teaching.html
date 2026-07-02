@@ -1,0 +1,31 @@
+---
+layout: archive
+title: "Teaching"
+permalink: /teaching/
+author_profile: true
+---
+
+{% include base_path %}
+
+{% assign sorted = site.teaching | sort: "date" | reverse %}
+
+<h2 class="archive__subtitle">Guest Lectures</h2>
+{% for post in sorted %}
+  {% if post.type == "Guest Lecturer" %}
+    {% include archive-single.html %}
+  {% endif %}
+{% endfor %}
+
+<h2 class="archive__subtitle">Teaching Assistant</h2>
+{% for post in sorted %}
+  {% if post.type == "Teaching Assistant" %}
+    {% include archive-single.html %}
+  {% endif %}
+{% endfor %}
+
+<h2 class="archive__subtitle">Mentoring</h2>
+<div class="list__item">
+  <article class="archive__item">
+    <p>REU student Skyloer Cole (Worcester Polytechnic Institute).</p>
+  </article>
+</div>

@@ -1,0 +1,47 @@
+---
+layout: archive
+title: "Publications"
+permalink: /publications/
+author_profile: true
+---
+
+{% if site.author.googlescholar %}
+  <div class="wordwrap">You can also find my articles on <a href="{{site.author.googlescholar}}">my Google Scholar profile</a>.</div>
+{% endif %}
+
+{% include base_path %}
+
+<p class="pub-legend"><em>&quot;*&quot; indicates co-first authors</em></p>
+
+<div class="pub-groups">
+
+  <h2>Journal Articles</h2><hr />
+  {% bibliography --query @*[keywords~=journal] %}
+
+  <h2>Conference Papers</h2><hr />
+  {% bibliography --query @*[keywords~=conference] %}
+
+  <h2>In Submission</h2><hr />
+  {% bibliography --query @*[keywords~=submitted] %}
+
+</div>
+
+<style>
+  /* Continuous [1]..[n] numbering across the three groups (CV convention). */
+  .pub-groups { counter-reset: pubn; }
+  .pub-groups ol.bibliography { list-style: none; margin: 0 0 1.6em; padding-left: 0; }
+  .pub-groups ol.bibliography > li {
+    counter-increment: pubn;
+    position: relative;
+    padding-left: 2.8em;
+    margin-bottom: 0.9em;
+  }
+  .pub-groups ol.bibliography > li::before {
+    content: "[" counter(pubn) "]";
+    position: absolute;
+    left: 0;
+    color: #494e52;
+  }
+  .pub-legend { margin-bottom: 0.5em; }
+  .pub-note { font-style: italic; }
+</style>

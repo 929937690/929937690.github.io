@@ -1,0 +1,23 @@
+# Ignore build output and caches
+_site/
+.jekyll-cache/
+.sass-cache/
+.jekyll-metadata
+
+# Ignore the directory for local files during development
+local/
+
+# Ignore files created by npm
+node_modules
+package-lock.json
+
+# Ignore vendored gems and local bundler config
+# (Gemfile.lock IS committed — CI uses it with bundler-cache)
+/vendor/bundle/
+.bundle/
+
+# Ignore folders related to IDEs
+.vscode/
+
+# Ignore files created by MacOS
+.DS_Store

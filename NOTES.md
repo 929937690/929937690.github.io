@@ -1,0 +1,173 @@
+# academicpages + jekyll-scholar (BibTeX-driven publications)
+
+Prototype: the academicpages theme, but with the Publications page generated
+from `_bibliography/publications.bib` (al-folio style) instead of the
+`_publications/` markdown collection.
+
+The bib file is a verbatim copy of the canonical
+`CV_YuntaoLi/publications.bib` — do not hand-edit it here; re-copy it from the
+CV repo when it changes. Everything CV-specific (comments, `presort`,
+`author+an`) is handled at build time.
+
+## What was added / changed
+
+| File | Change |
+|---|---|
+| `Gemfile` | added `gem 'jekyll-scholar'` (resolves to **5.16.0**, the last line compatible with the `github-pages` gem's Jekyll 3.10) |
+| `_config.yml` | added `jekyll-scholar` to `plugins`/`whitelist`; new `scholar:` block (IEEE style, `source: ./_bibliography`, `sort_by: year,presort`, `order: descending,ascending`, template `bib_entry`); removed the `publications` collection, its `defaults` scope and `publication_category` |
+| `_bibliography/publications.bib` | byte-identical copy of the canonical CV bib (9 entries) |
+| `_layouts/bib_entry.html` | per-entry template: `{{ reference | scholar_strip_number | scholar_cofirst: key | scholar_bold_author }}` + italic `{{ entry.note }}` |
+| `_plugins/scholar_extras.rb` | all the custom logic (see below) |
+| `_pages/publications.html` | rewritten: legend + three `{% bibliography --query ... %}` groups + CSS-counter numbering |
+| `_pages/cv.md` | publications section now uses `{% bibliography %}` instead of the removed collection |
+| `_publications/` | deleted (no duplicate content) |
+
+## How the requirements are implemented
+
+### Grouped sections (journal / conference / submitted)
+`_pages/publications.html` calls the `{% bibliography %}` tag three times with
+bibtex-ruby query filters on the `keywords` field:
+
+```liquid
+{% bibliography --query @*[keywords~=journal] %}
+{% bibliography --query @*[keywords~=conference] %}
+{% bibliography --query @*[keywords~=submitted] %}
+```
+
+(`~=` is a substring match, so `keywords = {conference,cofirst}` still matches
+`conference`.)
+
+### Sorting (newest first, CV hand-order within a year)
+`scholar.sort_by: year,presort` with `order: descending,ascending`.
+The two same-year journal papers are ordered by their `presort` values
+(`mk` < `ml`). jekyll-scholar's stock sort is *unstable* (plain `Array#sort`),
+so `_plugins/scholar_extras.rb` overrides it with a stable sort that falls
+back to .bib file order for full ties — exactly the CV order.
+
+### Continuous [1]..[9] numbering
+The IEEE CSL style emits its own `[n]` prefix, but it restarts at `[1]` for
+every `{% bibliography %}` tag. So:
+
+1. the `scholar_strip_number` Liquid filter removes the CSL-emitted `[n]`, and
+2. CSS counters in `_pages/publications.html` draw `[1]`..`[9]` continuously
+   across all three groups (`counter-reset` on the `.pub-groups` wrapper,
+   `counter-increment` + `li::before` on each entry).
+
+Adding/removing entries automatically renumbers everything; nothing is
+hardcoded.
+
+### Bold "Y. Li"
+`scholar_bold_author` filter (in `_plugins/scholar_extras.rb`) wraps every
+rendering of the name (`Yuntao Li`, `Li, Yuntao`, `Y. Li`, `Li, Y.`) in
+`<strong>`. The bib file is untouched.
+
+### Co-first `*` superscripts (StarV entry)
+The biblatex annotation `author+an = {1=cofirst; 2=cofirst; 3=cofirst}` is
+read by the `scholar_cofirst` Liquid filter **from the raw .bib text** (regex
+on the `@entry{...}` block — bibtex-ruby parses the field but it is awkward to
+reach through Liquid). The filter resolves annotated indices to family names
+from the `author` field and appends `<sup>*</sup>` to the first occurrence of
+each in the rendered reference → `H.-D. Tran*, S. W. Choi*, Y. Li*`.
+The legend `"*" indicates co-first authors` sits at the top of the page.
+Any future entry with an `author+an = {N=cofirst}` annotation gets stars
+automatically.
+
+### Italic notes
+`_layouts/bib_entry.html` appends `<em>{{ entry.note }}.</em>` whenever an
+entry has a `note` field — the three ATVA submissions get
+*Submitted to ... (ATVA).* and the ICFEM paper gets *Submitted.*
+
+### Author name format
+CSL style `ieee` renders initials-first names (`Y. Li`, `S. W. Choi`,
+`H.-D. Tran`) exactly like the CV. `and others` is post-processed to
+`et al.`. One quirk: IEEE's CSL only prints a conference `booktitle` when
+pages/editors are present, so `_plugins/scholar_extras.rb` remaps
+`paper-conference` → `chapter` in `to_citeproc`, giving the CV-style
+`"Title," in <i>Booktitle</i>, year.`
+
+## Compatibility patches (in `_plugins/scholar_extras.rb`)
+
+jekyll-scholar 5.16.0 pins bibtex-ruby 4.4.7, which predates Ruby 3. Under
+the vendored Ruby 3.4 two things break and are monkey-patched:
+
+* `Proc.new` without a block (removed in Ruby 3.0) in
+  `Bibliography#each`, `Entry#each/#convert`, `#each_entry`.
+* Ruby 3.4 made `dup` an own-method of `String`, so bibtex-ruby's blanket
+  `def_delegators :to_s, *String.instance_methods(false)` turned
+  `BibTeX::Name#dup` into "return a plain String", breaking every author-name
+  conversion. Restored to a real Struct copy.
+
+Also patched: the canonical bib has trailing `% comments` *inside* entries
+(the `presort = {mk},  % hand-order...` lines). bibtex-ruby's lexer chokes on
+those and silently drops the entry, so the loader strips
+`/^(.*\},?)[ \t]+%[^\n]*$/` before parsing — this keeps the bib copy
+byte-identical to the CV source.
+
+## Building locally
+
+```bash
+PATH=/home/yuntao/Documents/Work/Personal/template-gallery/.rubyenv/bin:$PATH \
+  bundle install          # gems vendored in vendor/bundle
+PATH=...rubyenv/bin:$PATH bundle exec jekyll serve --port 8104
+```
+
+## Deploying — use GitHub Actions, not the classic Pages builder
+
+The default GitHub Pages builder runs Jekyll in `--safe` mode with a fixed
+plugin whitelist. **jekyll-scholar is not on that whitelist**, and this site
+additionally uses a custom `_plugins/` file — both are ignored/blocked by the
+classic builder, so pushing to a plain Pages branch would produce a site with
+an empty publications page.
+
+Instead, build with GitHub Actions and publish the artifact:
+
+1. Repo → Settings → Pages → Source: **GitHub Actions**.
+2. Add `.github/workflows/deploy.yml`:
+
+```yaml
+name: Deploy Jekyll site
+on:
+  push:
+    branches: [main]
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '3.4'
+          bundler-cache: true      # runs bundle install, caches gems
+      - id: pages
+        uses: actions/configure-pages@v5
+      - run: bundle exec jekyll build --baseurl "${{ steps.pages.outputs.base_path }}"
+        env:
+          JEKYLL_ENV: production
+      - uses: actions/upload-pages-artifact@v3
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4
+```
+
+3. Set `url:`/`baseurl:` in `_config.yml` to the real site values before
+   deploying (currently pointing at `http://localhost:8104` for the preview).
+
+Since Actions runs whatever `bundle exec jekyll build` does, jekyll-scholar
+and `_plugins/scholar_extras.rb` work exactly as they do locally.
+
+## Updating publications
+
+Edit `CV_YuntaoLi/publications.bib` (the single source of truth), then re-copy
+it to `_bibliography/publications.bib`. Grouping (`keywords`), ordering
+(`year` + `presort`), co-first stars (`author+an`) and notes all flow through
+automatically.
