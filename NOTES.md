@@ -5,7 +5,7 @@ from `_bibliography/publications.bib` (al-folio style) instead of the
 `_publications/` markdown collection.
 
 The bib file is a verbatim copy of the canonical
-`CV_YuntaoLi/publications.bib` — do not hand-edit it here; re-copy it from the
+`cv-yuntaoli/publications.bib` — do not hand-edit it here; re-copy it from the
 CV repo when it changes. Everything CV-specific (comments, `presort`,
 `author+an`) is handled at build time.
 
@@ -125,7 +125,7 @@ Instead, `.github/workflows/deploy.yml` builds and publishes the site via
 GitHub Actions (Repo → Settings → Pages → Source: **GitHub Actions**):
 
 1. Runs on pushes to `main`, manual `workflow_dispatch`, and daily at `06:00 UTC`.
-2. Checks out `929937690/CV_YuntaoLi` via `secrets.CV_REPO_DEPLOY_KEY` and
+2. Checks out `929937690/cv-yuntaoli` via `secrets.CV_REPO_DEPLOY_KEY` and
    copies `publications.bib` → `_bibliography/publications.bib` and
    `main.pdf` → `files/CV_YuntaoLi.pdf`.
 3. Builds with Ruby `3.4` (`JEKYLL_ENV=production bundle exec jekyll build`) and
@@ -136,8 +136,8 @@ Since Actions runs `bundle exec jekyll build` directly, `jekyll-scholar` and
 
 ## Updating publications
 
-Edit `CV_YuntaoLi/publications.bib` (the single source of truth) and push to
-`929937690/CV_YuntaoLi`. The daily workflow (or clicking **Run workflow** on
+Edit `cv-yuntaoli/publications.bib` (the single source of truth) and push to
+`929937690/cv-yuntaoli`. The daily workflow (or clicking **Run workflow** on
 `Build and deploy site`) syncs `_bibliography/publications.bib` and
 `files/CV_YuntaoLi.pdf` automatically; re-copy them locally only when previewing
 unpushed CV changes. Grouping (`keywords`), ordering (`year` + `presort`),

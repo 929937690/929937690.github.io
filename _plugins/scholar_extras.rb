@@ -10,7 +10,7 @@
 #      entries (e.g. the `presort = {mk},  % hand-order ...` lines).
 #      bibtex-ruby's lexer chokes on those and silently drops the entry.
 #      Doing it here keeps _bibliography/publications.bib byte-identical to
-#      the canonical CV_YuntaoLi/publications.bib.
+#      the canonical cv-yuntaoli/publications.bib.
 #
 #   3. Stable sort: jekyll-scholar uses Array#sort (unstable), so entries that
 #      tie on every sort key (same year, no presort) could swap randomly.

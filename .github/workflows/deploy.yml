@@ -26,7 +26,7 @@ jobs:
       - name: Checkout CV repo (read-only deploy key)
         uses: actions/checkout@v4
         with:
-          repository: 929937690/CV_YuntaoLi
+          repository: 929937690/cv-yuntaoli
           ssh-key: ${{ secrets.CV_REPO_DEPLOY_KEY }}
           path: cv-repo
 
