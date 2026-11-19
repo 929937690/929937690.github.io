@@ -105,13 +105,15 @@ byte-identical to the CV source.
 
 ## Building locally
 
+Using the shared Ruby 3.4 launcher (`jekyll-env`, configured in `tools/jekyll/`):
+
 ```bash
-PATH=/home/yuntao/Documents/Work/Personal/template-gallery/.rubyenv/bin:$PATH \
-  bundle install          # gems vendored in vendor/bundle
-PATH=...rubyenv/bin:$PATH bundle exec jekyll serve --port 8104
+jekyll-env bundle config set --local path 'vendor/bundle'
+jekyll-env bundle install                      # gems vendored in vendor/bundle
+jekyll-env bundle exec jekyll serve --port 8104
 ```
 
-## Deploying — use GitHub Actions, not the classic Pages builder
+## Deploying — GitHub Actions (`.github/workflows/deploy.yml`)
 
 The default GitHub Pages builder runs Jekyll in `--safe` mode with a fixed
 plugin whitelist. **jekyll-scholar is not on that whitelist**, and this site
@@ -119,55 +121,24 @@ additionally uses a custom `_plugins/` file — both are ignored/blocked by the
 classic builder, so pushing to a plain Pages branch would produce a site with
 an empty publications page.
 
-Instead, build with GitHub Actions and publish the artifact:
+Instead, `.github/workflows/deploy.yml` builds and publishes the site via
+GitHub Actions (Repo → Settings → Pages → Source: **GitHub Actions**):
 
-1. Repo → Settings → Pages → Source: **GitHub Actions**.
-2. Add `.github/workflows/deploy.yml`:
+1. Runs on pushes to `main`, manual `workflow_dispatch`, and daily at `06:00 UTC`.
+2. Checks out `929937690/CV_YuntaoLi` via `secrets.CV_REPO_DEPLOY_KEY` and
+   copies `publications.bib` → `_bibliography/publications.bib` and
+   `main.pdf` → `files/CV_YuntaoLi.pdf`.
+3. Builds with Ruby `3.4` (`JEKYLL_ENV=production bundle exec jekyll build`) and
+   deploys `_site` to `https://929937690.github.io`.
 
-```yaml
-name: Deploy Jekyll site
-on:
-  push:
-    branches: [main]
-permissions:
-  contents: read
-  pages: write
-  id-token: write
-jobs:
-  build:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      - uses: ruby/setup-ruby@v1
-        with:
-          ruby-version: '3.4'
-          bundler-cache: true      # runs bundle install, caches gems
-      - id: pages
-        uses: actions/configure-pages@v5
-      - run: bundle exec jekyll build --baseurl "${{ steps.pages.outputs.base_path }}"
-        env:
-          JEKYLL_ENV: production
-      - uses: actions/upload-pages-artifact@v3
-  deploy:
-    needs: build
-    runs-on: ubuntu-latest
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    steps:
-      - id: deployment
-        uses: actions/deploy-pages@v4
-```
-
-3. Set `url:`/`baseurl:` in `_config.yml` to the real site values before
-   deploying (currently pointing at `http://localhost:8104` for the preview).
-
-Since Actions runs whatever `bundle exec jekyll build` does, jekyll-scholar
-and `_plugins/scholar_extras.rb` work exactly as they do locally.
+Since Actions runs `bundle exec jekyll build` directly, `jekyll-scholar` and
+`_plugins/scholar_extras.rb` work identically in CI and locally.
 
 ## Updating publications
 
-Edit `CV_YuntaoLi/publications.bib` (the single source of truth), then re-copy
-it to `_bibliography/publications.bib`. Grouping (`keywords`), ordering
-(`year` + `presort`), co-first stars (`author+an`) and notes all flow through
-automatically.
+Edit `CV_YuntaoLi/publications.bib` (the single source of truth) and push to
+`929937690/CV_YuntaoLi`. The daily workflow (or clicking **Run workflow** on
+`Build and deploy site`) syncs `_bibliography/publications.bib` and
+`files/CV_YuntaoLi.pdf` automatically; re-copy them locally only when previewing
+unpushed CV changes. Grouping (`keywords`), ordering (`year` + `presort`),
+co-first stars (`author+an`), and notes all flow through automatically.
