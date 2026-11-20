@@ -1,4 +1,6 @@
+{% include base_path %}
 {% assign flagship = key | scholar_is_flagship %}
+{% assign pdf_href = key | scholar_paper_pdf %}
 <div class="s-pub{% if flagship %} s-pub--featured{% endif %}">
   <div class="s-pub__gutter">
     {{ key | scholar_venue_badge }}
@@ -11,6 +13,7 @@
     <div class="s-pub__authors">{{ key | scholar_card_authors }}</div>
     <div class="s-pub__meta">
       <span>{{ key | scholar_card_venue }}</span>
+      {% if pdf_href != '' %}<a class="s-pill" href="{% if pdf_href contains '://' %}{{ pdf_href }}{% else %}{{ base_path }}{{ pdf_href }}{% endif %}">PDF ↗</a>{% endif %}
       {% if entry.doi %}<a class="s-pill" href="https://doi.org/{{ entry.doi }}">DOI ↗</a>{% endif %}
       {% if entry.url and entry.url != 'https://github.com/V2A2/StarV' %}<a class="s-pill" href="{{ entry.url }}">Link ↗</a>{% endif %}
       {% if key == 'tran2025starv' %}<a class="s-pill" href="https://github.com/V2A2/StarV">Code ↗</a>{% endif %}

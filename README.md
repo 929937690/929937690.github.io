@@ -15,6 +15,7 @@ Academic homepage built on Jekyll with a custom **`studio` (`Hybrid BD-1`)** edi
 | `_pages/` | `about.md` (`/`), `publications.html` (`/publications/`), `teaching.html` (`/teaching/`), `cv.md` (`/cv/`), and `404.md` (`/404.html`) |
 | `_bibliography/publications.bib` | Public bibliography synced from `cv-yuntaoli/publications.bib` (`blind` entries stripped) |
 | `files/CV_YuntaoLi.pdf` | Public CV PDF synced from `cv-yuntaoli/main.pdf` |
+| `files/papers/<bib-key>.pdf` | Optional local paper PDFs — dropping `<bib-key>.pdf` here automatically renders a `PDF ↗` button on that paper's card |
 | `images/` | Web-optimized Retina portrait (`profile.jpg`) and site favicons |
 | `assets/`, `_sass/vendor/font-awesome/` | Self-hosted Font Awesome and Academicons stylesheets/fonts |
 

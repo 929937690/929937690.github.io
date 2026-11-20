@@ -210,9 +210,19 @@ module ScholarExtrasFilters
     raw = ScholarExtras.raw_entry(site, key)
     return '' unless raw
 
-    cleaned = raw.lines.reject { |ln| ln =~ /^\s*(presort|keywords|author\+an)\s*=/ }
+    cleaned = raw.lines.reject { |ln| ln =~ /^\s*(presort|keywords|author\+an|pdf)\s*=/ }
                  .map { |ln| ln.sub(/^(.*\},?)[ \t]+%.*$/, '\1') }.join
     CGI.escapeHTML(cleaned.strip)
+  end
+
+  def scholar_paper_pdf(key)
+    site = @context.registers[:site]
+    local_rel = "/files/papers/#{key}.pdf"
+    return local_rel if File.exist?(File.join(site.source, local_rel))
+
+    raw = ScholarExtras.raw_entry(site, key)
+    ext = ScholarExtras.field(raw, 'pdf')
+    ext && !ext.empty? ? ext : ''
   end
 
   def scholar_is_flagship(key)

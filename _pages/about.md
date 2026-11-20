@@ -99,8 +99,8 @@ redirect_from:
     </ul>
     <ul class="s-compact-list">
       <li><strong>Journal Reviewer</strong> — MultiMedia Tools and Applications (2023, 2024); IEEE Design &amp; Test (2023).</li>
-      <li><strong>Conference Reviewer / PC</strong> — SAIV 2024, ERAS 2025, L4DC 2025, QEST+FORMATS 2025, L4DC 2026.</li>
-      <li><strong>Artifact Reviewer</strong> — FormaliSE 2024, QEST+FORMATS 2025, FormaliSE 2026, HSCC/ICCPS 2026, CAV 2026.</li>
+      <li><strong>Conference Reviewer / PC</strong> — SAIV 2024, ERAS 2025, L4DC 2025, QEST+FORMATS 2025, L4DC 2026, NeuS 2026, SAIV 2026, CDC 2026, CAV 2026, L4DC 2027.</li>
+      <li><strong>Artifact Reviewer</strong> — FormaliSE 2024, QEST+FORMATS 2025, FormaliSE 2026, HSCC/ICCPS 2026, CAV 2026, HSCC/ICCPS 2027.</li>
     </ul>
   </div>
 </section>
