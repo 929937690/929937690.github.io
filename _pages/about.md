@@ -13,15 +13,15 @@ redirect_from:
   <div>
     <div class="s-eyebrow">CISE · University of Florida</div>
     <h1 class="s-name">Yuntao Li</h1>
-    <p class="s-affil">Ph.D. Student in Computer Science · TransSafeAI Research Group</p>
+    <p class="s-affil">Ph.D. Student in Computer Science · V2LA Lab</p>
     <div class="s-bio">
-      <p>I am a Ph.D. student in Computer &amp; Information Science &amp; Engineering at the <strong>University of Florida</strong>, working as a Graduate Research Assistant in the <a href="https://sites.google.com/view/v2a2/about">TransSafeAI research group</a> advised by Prof. Hoang-Dung Tran.</p>
-      <p>My research develops formal verification and runtime assurance methods for <strong>learning-enabled cyber-physical systems</strong> and <strong>safe, trustworthy artificial intelligence</strong> — spanning Star and ProbStar reachability for deep neural networks, recurrent architectures, semantic segmentation, and autonomous robotics. Previously, I began my Ph.D. at the University of Nebraska–Lincoln (2021–2025) and earned my B.S. in Computer Science (<em>Summa Cum Laude</em>) from the University of Nebraska at Kearney.</p>
+      <p>I am a Ph.D. student in Computer &amp; Information Science &amp; Engineering at the <strong>University of Florida</strong>, working with Prof. Hoang-Dung Tran in the <a href="https://sites.google.com/view/v2a2/about">Verification and Validation for Learning-enabled Autonomy Lab (V2LA)</a>.</p>
+      <p>Modern autonomous robots rely on deep neural networks and learned world models to perceive complex environments, where classical worst-case verification alone is often too conservative or too slow for closed-loop deployment. My research bridges <strong>formal set-based reachability</strong> (<strong>Star</strong> and <strong>ProbStar</strong> methods in <a href="https://github.com/V2A2/StarV">StarV</a>) with <strong>online quantitative runtime verification</strong> — propagating calibrated perception and scene uncertainty through temporal specifications to certify and guide safe trajectories in real time. Previously, I began my Ph.D. at the University of Nebraska–Lincoln and earned my B.S. in Computer Science (<em>Summa Cum Laude</em>) from the University of Nebraska at Kearney.</p>
     </div>
     <div class="s-tags">
       <span class="s-tag">Neural Network Verification</span>
-      <span class="s-tag">ProbStar Reachability</span>
-      <span class="s-tag">Runtime Monitoring</span>
+      <span class="s-tag">Reachability</span>
+      <span class="s-tag">Runtime Verification</span>
       <span class="s-tag">Safe Autonomous CPS</span>
     </div>
     <div class="s-actions">
@@ -29,7 +29,7 @@ redirect_from:
       <a class="s-btn" href="mailto:yli17@ufl.edu"><i class="fas fa-envelope" aria-hidden="true"></i> Email</a>
       <a class="s-btn" href="https://scholar.google.com/citations?user=_RzS3uMAAAAJ&hl=en"><i class="ai ai-google-scholar" aria-hidden="true"></i> Scholar</a>
       <a class="s-btn" href="https://github.com/929937690"><i class="fab fa-github" aria-hidden="true"></i> GitHub</a>
-      <a class="s-btn" href="https://www.linkedin.com/in/yuntaoliy3"><i class="fab fa-linkedin" aria-hidden="true"></i> LinkedIn</a>
+      <!-- <a class="s-btn" href="https://www.linkedin.com/in/yuntaoliy3"><i class="fab fa-linkedin" aria-hidden="true"></i> LinkedIn</a> -->
     </div>
   </div>
   <div>
@@ -40,10 +40,11 @@ redirect_from:
 <section class="s-sec" id="news">
   <div class="s-flanked"><h2>Recent News</h2></div>
   <div class="s-news">
-    <div class="s-news__row"><span class="s-news__date">2026</span><span>Three papers on RNN, semantic segmentation, and SparseImageStar CNN verification submitted to <strong>ATVA 2026</strong>.</span></div>
-    <div class="s-news__row"><span class="s-news__date">Aug 2025</span><span>Moved with the TransSafeAI group to the <strong>University of Florida</strong> (CISE) to continue my Ph.D. with Prof. Hoang-Dung Tran.</span></div>
+    <div class="s-news__row"><span class="s-news__date">2026</span><span>First-authored journal article on ProbStar quantitative verification published in <em>Nonlinear Analysis: Hybrid Systems (NAHS)</em>.</span></div>
+    <div class="s-news__row"><span class="s-news__date">Nov 2025</span><span>Paper on quantitative verification for temporal properties of massive linear systems published at <strong>ICFEM 2025</strong>.</span></div>
+    <div class="s-news__row"><span class="s-news__date">Aug 2025</span><span>Moved with the V2LA Lab to the <strong>University of Florida</strong> (CISE) to continue my Ph.D. with Prof. Hoang-Dung Tran.</span></div>
     <div class="s-news__row"><span class="s-news__date">Jul 2025</span><span><strong>StarV</strong> verification tool paper presented at <strong>CAV 2025</strong> (co-first author).</span></div>
-    <div class="s-news__row"><span class="s-news__date">May 2025</span><span>ProbStar Temporal Logic paper presented at <strong>HSCC 2025</strong>; two journal articles published in <em>Nonlinear Analysis: Hybrid Systems (NAHS)</em>.</span></div>
+    <div class="s-news__row"><span class="s-news__date">May 2025</span><span>ProbStar Temporal Logic paper presented at <strong>HSCC 2025</strong>; RNN reachability article published in <em>Nonlinear Analysis: Hybrid Systems (NAHS)</em>.</span></div>
     <div class="s-news__row"><span class="s-news__date">2024</span><span>Paper on perception-based runtime monitoring accepted at <strong>MEMOCODE 2024</strong>.</span></div>
   </div>
 </section>
@@ -59,8 +60,11 @@ redirect_from:
     <div class="s-pub-cat">Conference Papers</div>
     {% bibliography --query @*[keywords~=conference] %}
 
+    {% assign has_sub = 'submitted' | scholar_has_public_entries %}
+    {% if has_sub %}
     <div class="s-pub-cat">In Submission</div>
     {% bibliography --query @*[keywords~=submitted] %}
+    {% endif %}
   </div>
 </section>
 

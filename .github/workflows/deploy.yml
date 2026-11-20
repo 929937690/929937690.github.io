@@ -30,9 +30,15 @@ jobs:
           ssh-key: ${{ secrets.CV_REPO_DEPLOY_KEY }}
           path: cv-repo
 
-      - name: Sync bibliography and CV PDF from CV repo
+      - name: Sync bibliography (stripping double-blind entries) and CV PDF
         run: |
-          cp cv-repo/publications.bib _bibliography/publications.bib
+          ruby -e '
+            src = File.read("cv-repo/publications.bib")
+            pub = src.gsub(/@\w+\{[^@]*?\n\}\s*/m) { |blk|
+              blk =~ /keywords\s*=\s*\{[^}]*\bblind\b[^}]*\}/i ? "" : blk
+            }
+            File.write("_bibliography/publications.bib", pub)
+          '
           mkdir -p files
           cp cv-repo/main.pdf files/CV_YuntaoLi.pdf
           rm -rf cv-repo

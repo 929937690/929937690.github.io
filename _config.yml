@@ -12,7 +12,7 @@ site_theme               : "default" # The available themes options are "default
 title                    : "Yuntao Li"
 title_separator          : "-"
 name                     : &name "Yuntao Li"
-description              : &description "Yuntao Li — Ph.D. student in Computer Science at the University of Florida. Formal verification of learning-enabled cyber-physical systems; safe and secure AI."   # Update this with a general description of your site, this is the default if not overridden by a page
+description              : &description "Yuntao Li — Ph.D. student in Computer Science at the University of Florida (V2LA Lab). Assured autonomy; formal and runtime verification of learning-enabled cyber-physical systems; safe and trustworthy AI."   # Update this with a general description of your site, this is the default if not overridden by a page
 url                      : https://929937690.github.io # The base hostname & protocol for your site
 baseurl                  : "" # root user site — no subpath
 repository               : "929937690/929937690.github.io"
@@ -65,7 +65,7 @@ author:
   keybase          : # Username
   instagram        : # Username
   lastfm           : # Username
-  linkedin         : "yuntaoliy3"
+  linkedin         : # "yuntaoliy3" (hidden until profile is populated)
   mastodon         : # URL
   medium           : # URL
   pinterest        : # Username

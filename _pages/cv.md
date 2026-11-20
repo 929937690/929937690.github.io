@@ -39,7 +39,10 @@ redirect_from:
     {% bibliography --query @*[keywords~=journal] %}
     <div class="s-pub-cat">Conference Papers</div>
     {% bibliography --query @*[keywords~=conference] %}
+    {% assign has_sub = 'submitted' | scholar_has_public_entries %}
+    {% if has_sub %}
     <div class="s-pub-cat">In Submission</div>
     {% bibliography --query @*[keywords~=submitted] %}
+    {% endif %}
   </div>
 </section>

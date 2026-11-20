@@ -32,7 +32,11 @@ The bib file is a verbatim copy of the canonical `cv-yuntaoli/publications.bib` 
 ```
 
 (`~=` is a substring match, so `keywords = {conference,cofirst}` still matches
-`conference`.)
+`conference`. Double-anonymous submissions tagged `keywords = {submitted,blind}`
+in `cv-yuntaoli/publications.bib` are stripped automatically by `deploy.yml`
+and `_plugins/scholar_extras.rb` so they never appear on the public website, and
+the *In Submission* section auto-hides via `scholar_has_public_entries` whenever
+zero non-blind submissions exist.)
 
 ### Sorting (newest first, CV hand-order within a year)
 `scholar.sort_by: year,presort` with `order: descending,ascending`.

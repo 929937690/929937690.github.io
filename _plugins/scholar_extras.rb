@@ -55,6 +55,9 @@ module Jekyll
       def bibliography
         unless @bibliography
           raw = bibtex_paths.reduce(+'') { |s, p| s << IO.read(p) }
+          raw = raw.gsub(/@\w+\{[^@]*?\n\}\s*/m) do |blk|
+            blk =~ /keywords\s*=\s*\{[^}]*\bblind\b[^}]*\}/i ? '' : blk
+          end
           raw = raw.gsub(/^(.*\},?)[ \t]+%[^\n]*$/, '\1')
           @bibliography = BibTeX::Bibliography.parse(raw, bibtex_options)
           @bibliography.replace_strings if replace_strings?
@@ -213,7 +216,21 @@ module ScholarExtrasFilters
   end
 
   def scholar_is_flagship(key)
-    key.to_s == 'tran2025starv' || key.to_s == 'li2025quantitative'
+    %w[tran2025starv li2026quantitative li2025quantitative].include?(key.to_s)
+  end
+
+  def scholar_has_public_entries(keyword)
+    site = @context.registers[:site]
+    cfg = site.config['scholar'] || {}
+    path = File.join(site.source,
+                     (cfg['source'] || './_bibliography').sub(%r{\A\./}, ''),
+                     cfg['bibliography'] || 'references.bib')
+    return false unless File.exist?(path)
+
+    File.read(path).scan(/@\w+\{[^@]*?\n\}/m).any? do |blk|
+      kw = ScholarExtras.field(blk, 'keywords').to_s
+      kw.include?(keyword.to_s) && kw !~ /\bblind\b/i
+    end
   end
 end
 
