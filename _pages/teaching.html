@@ -1,31 +1,32 @@
 ---
-layout: archive
-title: "Teaching"
+layout: studio
+title: "Teaching & Academic Service"
 permalink: /teaching/
-author_profile: true
 ---
 
 {% include base_path %}
 
-{% assign sorted = site.teaching | sort: "date" | reverse %}
+<p style="margin:0 0 18px;font-size:0.86rem;"><a href="{{ base_path }}/">← Back to Home</a></p>
 
-<h2 class="archive__subtitle">Guest Lectures</h2>
-{% for post in sorted %}
-  {% if post.type == "Guest Lecturer" %}
-    {% include archive-single.html %}
-  {% endif %}
-{% endfor %}
-
-<h2 class="archive__subtitle">Teaching Assistant</h2>
-{% for post in sorted %}
-  {% if post.type == "Teaching Assistant" %}
-    {% include archive-single.html %}
-  {% endif %}
-{% endfor %}
-
-<h2 class="archive__subtitle">Mentoring</h2>
-<div class="list__item">
-  <article class="archive__item">
-    <p>REU student Skyloer Cole (Worcester Polytechnic Institute).</p>
-  </article>
-</div>
+<section class="s-sec" style="margin-top:8px;">
+  <div class="s-flanked"><h1>Teaching &amp; Academic Service</h1></div>
+  <div class="s-two-col">
+    <div class="s-card">
+      <div class="s-card__top"><span class="s-card__name">Teaching &amp; Mentoring</span></div>
+      <ul class="s-compact-list" style="margin-top:10px;">
+        <li><strong>Guest Lecturer</strong> — CSCE 322 Programming Language Concepts (UNL, Spring '25); CSCE 460/860 Software Engineering for Robotics (UNL, Fall '24).</li>
+        <li><strong>Teaching Assistant (UNL)</strong> — CSCE 322 (Fall '24, Spring '25); CSCE 460/860 (Spring '23, '24, '25).</li>
+        <li><strong>Teaching Assistant (UNK)</strong> — CYBR 407 Intro Automata/Formal Language (Fall '20); CYBR 330 Algorithms &amp; Data Structures (Fall '20); CYBR 103 &amp; CYBR 101 (Spring '20).</li>
+        <li><strong>Mentoring</strong> — Skyloer Cole, NSF REU student (Worcester Polytechnic Institute).</li>
+      </ul>
+    </div>
+    <div class="s-card">
+      <div class="s-card__top"><span class="s-card__name">Academic Service</span></div>
+      <ul class="s-compact-list" style="margin-top:10px;">
+        <li><strong>Journal Reviewer</strong> — MultiMedia Tools and Applications (2023, 2024); IEEE Design &amp; Test (2023).</li>
+        <li><strong>Conference Reviewer / PC</strong> — SAIV 2024, ERAS 2025, L4DC 2025, QEST+FORMATS 2025, L4DC 2026.</li>
+        <li><strong>Artifact Reviewer</strong> — FormaliSE 2024, QEST+FORMATS 2025, FormaliSE 2026, HSCC/ICCPS 2026, CAV 2026.</li>
+      </ul>
+    </div>
+  </div>
+</section>

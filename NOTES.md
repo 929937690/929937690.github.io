@@ -1,32 +1,29 @@
-# academicpages + jekyll-scholar (BibTeX-driven publications)
+# Yuntao Li — Personal Website (`Hybrid BD-1` + `jekyll-scholar`)
 
-Prototype: the academicpages theme, but with the Publications page generated
-from `_bibliography/publications.bib` (al-folio style) instead of the
-`_publications/` markdown collection.
+Academic homepage built on Jekyll with the custom **`studio` (`Hybrid BD-1`)** editorial layout and BibTeX-driven publications powered by `jekyll-scholar` from `_bibliography/publications.bib`.
 
-The bib file is a verbatim copy of the canonical
-`cv-yuntaoli/publications.bib` — do not hand-edit it here; re-copy it from the
-CV repo when it changes. Everything CV-specific (comments, `presort`,
-`author+an`) is handled at build time.
+The bib file is a verbatim copy of the canonical `cv-yuntaoli/publications.bib` — do not hand-edit it here; GitHub Actions syncs both `_bibliography/publications.bib` and `files/CV_YuntaoLi.pdf` automatically from `929937690/cv-yuntaoli`. Everything CV-specific (inline `%` comments, `presort`, `author+an`, `keywords`) is handled at build time.
 
-## What was added / changed
+## Architecture & Key Files
 
-| File | Change |
+| File | Role |
 |---|---|
-| `Gemfile` | added `gem 'jekyll-scholar'` (resolves to **5.16.0**, the last line compatible with the `github-pages` gem's Jekyll 3.10) |
-| `_config.yml` | added `jekyll-scholar` to `plugins`/`whitelist`; new `scholar:` block (IEEE style, `source: ./_bibliography`, `sort_by: year,presort`, `order: descending,ascending`, template `bib_entry`); removed the `publications` collection, its `defaults` scope and `publication_category` |
-| `_bibliography/publications.bib` | byte-identical copy of the canonical CV bib (9 entries) |
-| `_layouts/bib_entry.html` | per-entry template: `{{ reference | scholar_strip_number | scholar_cofirst: key | scholar_bold_author }}` + italic `{{ entry.note }}` |
-| `_plugins/scholar_extras.rb` | all the custom logic (see below) |
-| `_pages/publications.html` | rewritten: legend + three `{% bibliography --query ... %}` groups + CSS-counter numbering |
-| `_pages/cv.md` | publications section now uses `{% bibliography %}` instead of the removed collection |
-| `_publications/` | deleted (no duplicate content) |
+| `Gemfile` | `github-pages` (Jekyll 3.10) + `gem 'jekyll-scholar'` (**5.16.0**) |
+| `_config.yml` | Site metadata, `jekyll-scholar` plugin config (`sort_by: year,presort`, `order: descending,ascending`, `bibliography_template: bib_entry`) |
+| `_layouts/studio.html` | Custom **Hybrid BD-1** layout: warm alabaster paper palette (`#FAF8F4`) + persisted dark mode (`#141413`), sticky glass navbar, portrait hero, flanked horizontal section bars mirroring the `CM-4` CV, structured publication card grid, software bento cards, and responsive layout |
+| `_layouts/bib_entry.html` | Structured publication card template: venue badge + `[1]..[9]` counter gutter, serif title, `Tool Paper` chip, initials-first authors (`Y. Li` bolded + `*` co-first), venue/submission line, automatic `DOI`/`Link`/`Code` pills, and inline BibTeX drawer with one-click copy |
+| `_plugins/scholar_extras.rb` | Ruby 3.4 patches for `bibtex-ruby` 4.4.7, inline `%` comment stripper, stable tie-breaking sort, and structured card Liquid filters (`scholar_venue_badge`, `scholar_card_authors`, `scholar_card_venue`, `scholar_clean_bibtex`, `scholar_is_flagship`) |
+| `_pages/about.md` | Single-scroll homepage (`/`) with Hero, Recent News, Publications, Open-Source Tools, and Teaching & Academic Service |
+| `_pages/publications.html`, `_pages/teaching.html`, `_pages/cv.md`, `_pages/404.md` | Dedicated subpages (`/publications/`, `/teaching/`, `/cv/`, `/404.html`) sharing `layout: studio` |
+| `_bibliography/publications.bib` | Byte-identical copy of `cv-yuntaoli/publications.bib` |
+| `files/CV_YuntaoLi.pdf` | Compiled `CM-4` CV PDF synced from `cv-yuntaoli/main.pdf` |
+| `images/profile.jpg` | Web-optimized Retina portrait (`688×720`, ~55 KB) |
 
 ## How the requirements are implemented
 
 ### Grouped sections (journal / conference / submitted)
-`_pages/publications.html` calls the `{% bibliography %}` tag three times with
-bibtex-ruby query filters on the `keywords` field:
+`_pages/about.md`, `_pages/publications.html`, and `_pages/cv.md` call the
+`{% bibliography %}` tag three times with bibtex-ruby query filters on `keywords`:
 
 ```liquid
 {% bibliography --query @*[keywords~=journal] %}
@@ -40,50 +37,27 @@ bibtex-ruby query filters on the `keywords` field:
 ### Sorting (newest first, CV hand-order within a year)
 `scholar.sort_by: year,presort` with `order: descending,ascending`.
 The two same-year journal papers are ordered by their `presort` values
-(`mk` < `ml`). jekyll-scholar's stock sort is *unstable* (plain `Array#sort`),
-so `_plugins/scholar_extras.rb` overrides it with a stable sort that falls
-back to .bib file order for full ties — exactly the CV order.
+(`mk` < `ml`). `jekyll-scholar`'s stock sort is *unstable* (`Array#sort`), so
+`_plugins/scholar_extras.rb` overrides it with a stable sort falling back to
+`.bib` file order for full ties — matching the CV order identically.
 
-### Continuous [1]..[9] numbering
-The IEEE CSL style emits its own `[n]` prefix, but it restarts at `[1]` for
-every `{% bibliography %}` tag. So:
+### Continuous `[1]..[9]` numbering & venue badges
+CSS counters in `_layouts/studio.html` (`counter-reset: pubn` on `.s-pub-groups`,
+`counter-increment: pubn` on `ol.bibliography > li`, and `.s-pub__gutter::before`)
+render `[1]`..`[9]` continuously across all three groups. `scholar_venue_badge`
+extracts parenthesized acronyms (`NAHS '25`, `CAV '25`, `HSCC '25`, `ATVA '26`, etc.)
+and styles them by category (`journal` emerald, `conference` UF blue, `submitted` amber).
 
-1. the `scholar_strip_number` Liquid filter removes the CSL-emitted `[n]`, and
-2. CSS counters in `_pages/publications.html` draw `[1]`..`[9]` continuously
-   across all three groups (`counter-reset` on the `.pub-groups` wrapper,
-   `counter-increment` + `li::before` on each entry).
-
-Adding/removing entries automatically renumbers everything; nothing is
-hardcoded.
-
-### Bold "Y. Li"
-`scholar_bold_author` filter (in `_plugins/scholar_extras.rb`) wraps every
-rendering of the name (`Yuntao Li`, `Li, Yuntao`, `Y. Li`, `Li, Y.`) in
-`<strong>`. The bib file is untouched.
-
-### Co-first `*` superscripts (StarV entry)
-The biblatex annotation `author+an = {1=cofirst; 2=cofirst; 3=cofirst}` is
-read by the `scholar_cofirst` Liquid filter **from the raw .bib text** (regex
-on the `@entry{...}` block — bibtex-ruby parses the field but it is awkward to
-reach through Liquid). The filter resolves annotated indices to family names
-from the `author` field and appends `<sup>*</sup>` to the first occurrence of
-each in the rendered reference → `H.-D. Tran*, S. W. Choi*, Y. Li*`.
-The legend `"*" indicates co-first authors` sits at the top of the page.
-Any future entry with an `author+an = {N=cofirst}` annotation gets stars
-automatically.
-
-### Italic notes
-`_layouts/bib_entry.html` appends `<em>{{ entry.note }}.</em>` whenever an
-entry has a `note` field — the three ATVA submissions get
-*Submitted to ... (ATVA).* and the ICFEM paper gets *Submitted.*
-
-### Author name format
-CSL style `ieee` renders initials-first names (`Y. Li`, `S. W. Choi`,
-`H.-D. Tran`) exactly like the CV. `and others` is post-processed to
-`et al.`. One quirk: IEEE's CSL only prints a conference `booktitle` when
-pages/editors are present, so `_plugins/scholar_extras.rb` remaps
-`paper-conference` → `chapter` in `to_citeproc`, giving the CV-style
-`"Title," in <i>Booktitle</i>, year.`
+### Structured author, venue, and BibTeX filters
+* `scholar_card_authors`: formats initials-first names (`Y. Li`, `S. W. Choi`,
+  `H.-D. Tran`, `et al.`), wraps `Y. Li` in `<strong>`, and reads biblatex
+  `author+an = {1=cofirst; 2=cofirst; 3=cofirst}` annotations to append `<sup>*</sup>`
+  automatically.
+* `scholar_card_venue`: renders italicized `journal` / `booktitle` + `note` + `year`.
+* `scholar_clean_bibtex`: strips CV-only fields (`presort`, `keywords`, `author+an`)
+  and inline `%` comments for the expandable `BibTeX` drawer + `Copy` button.
+* `_layouts/bib_entry.html`: also emits `DOI ↗` and `Link ↗` pills automatically
+  whenever `doi` or `url` is present on an entry.
 
 ## Compatibility patches (in `_plugins/scholar_extras.rb`)
 

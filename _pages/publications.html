@@ -1,47 +1,25 @@
 ---
-layout: archive
+layout: studio
 title: "Publications"
 permalink: /publications/
-author_profile: true
 ---
-
-{% if site.author.googlescholar %}
-  <div class="wordwrap">You can also find my articles on <a href="{{site.author.googlescholar}}">my Google Scholar profile</a>.</div>
-{% endif %}
 
 {% include base_path %}
 
-<p class="pub-legend"><em>&quot;*&quot; indicates co-first authors</em></p>
+<p style="margin:0 0 18px;font-size:0.86rem;"><a href="{{ base_path }}/">← Back to Home</a></p>
 
-<div class="pub-groups">
+<section class="s-sec" style="margin-top:8px;">
+  <div class="s-flanked"><h1>Publications</h1></div>
+  <div class="s-pub-note-top">&ldquo;*&rdquo; indicates co-first authors · <a href="https://scholar.google.com/citations?user=_RzS3uMAAAAJ&hl=en">Google Scholar ↗</a></div>
 
-  <h2>Journal Articles</h2><hr />
-  {% bibliography --query @*[keywords~=journal] %}
+  <div class="s-pub-groups">
+    <div class="s-pub-cat">Journal Articles</div>
+    {% bibliography --query @*[keywords~=journal] %}
 
-  <h2>Conference Papers</h2><hr />
-  {% bibliography --query @*[keywords~=conference] %}
+    <div class="s-pub-cat">Conference Papers</div>
+    {% bibliography --query @*[keywords~=conference] %}
 
-  <h2>In Submission</h2><hr />
-  {% bibliography --query @*[keywords~=submitted] %}
-
-</div>
-
-<style>
-  /* Continuous [1]..[n] numbering across the three groups (CV convention). */
-  .pub-groups { counter-reset: pubn; }
-  .pub-groups ol.bibliography { list-style: none; margin: 0 0 1.6em; padding-left: 0; }
-  .pub-groups ol.bibliography > li {
-    counter-increment: pubn;
-    position: relative;
-    padding-left: 2.8em;
-    margin-bottom: 0.9em;
-  }
-  .pub-groups ol.bibliography > li::before {
-    content: "[" counter(pubn) "]";
-    position: absolute;
-    left: 0;
-    color: #494e52;
-  }
-  .pub-legend { margin-bottom: 0.5em; }
-  .pub-note { font-style: italic; }
-</style>
+    <div class="s-pub-cat">In Submission</div>
+    {% bibliography --query @*[keywords~=submitted] %}
+  </div>
+</section>

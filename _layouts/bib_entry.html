@@ -1,1 +1,26 @@
-<span class="pub-ref">{{ reference | scholar_strip_number | scholar_cofirst: key | scholar_bold_author }}</span>{% if entry.note %} <em class="pub-note">{{ entry.note }}.</em>{% endif %}
+{% assign flagship = key | scholar_is_flagship %}
+<div class="s-pub{% if flagship %} s-pub--featured{% endif %}">
+  <div class="s-pub__gutter">
+    {{ key | scholar_venue_badge }}
+  </div>
+  <div class="s-pub__body">
+    <div class="s-pub__title">
+      {{ entry.title }}
+      {% if key == 'tran2025starv' %}<span class="s-chip">Tool Paper</span>{% endif %}
+    </div>
+    <div class="s-pub__authors">{{ key | scholar_card_authors }}</div>
+    <div class="s-pub__meta">
+      <span>{{ key | scholar_card_venue }}</span>
+      {% if entry.doi %}<a class="s-pill" href="https://doi.org/{{ entry.doi }}">DOI ↗</a>{% endif %}
+      {% if entry.url and entry.url != 'https://github.com/V2A2/StarV' %}<a class="s-pill" href="{{ entry.url }}">Link ↗</a>{% endif %}
+      {% if key == 'tran2025starv' %}<a class="s-pill" href="https://github.com/V2A2/StarV">Code ↗</a>{% endif %}
+      <details class="s-bib">
+        <summary class="s-pill">BibTeX</summary>
+        <div class="s-bib__box">
+          <button type="button" class="s-copy-btn" onclick="navigator.clipboard.writeText(this.nextElementSibling.innerText);this.innerText='Copied!';setTimeout(()=>this.innerText='Copy',1500)">Copy</button>
+          <pre><code>{{ key | scholar_clean_bibtex }}</code></pre>
+        </div>
+      </details>
+    </div>
+  </div>
+</div>
