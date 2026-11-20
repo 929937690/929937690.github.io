@@ -93,9 +93,10 @@ redirect_from:
   <div class="s-two-col">
     <ul class="s-compact-list">
       <li><strong>Guest Lecturer</strong> — CSCE 322 Programming Language Concepts (UNL, Spring '25); CSCE 460/860 Software Engineering for Robotics (UNL, Fall '24).</li>
+      <li><strong>Teaching Assistant (UF)</strong> — COP 5556 Programming Language Principles (Fall '26).</li>
       <li><strong>Teaching Assistant (UNL)</strong> — CSCE 322 (Fall '24, Spring '25); CSCE 460/860 (Spring '23, '24, '25).</li>
       <li><strong>Teaching Assistant (UNK)</strong> — CYBR 407 Intro Automata/Formal Language (Fall '20); CYBR 330 Algorithms &amp; Data Structures (Fall '20); CYBR 103 &amp; CYBR 101 (Spring '20).</li>
-      <li><strong>Mentoring</strong> — Skyloer Cole, NSF REU student (Worcester Polytechnic Institute).</li>
+      <li><strong>Mentoring</strong> — <em>M.S.:</em> Stuti Ruparel (UF); <em>Undergraduates:</em> Zou Li David, Nathan Chin-Lue, Son Tran, Benjamin Kojusner (UF); <em>REU:</em> Skyloer Cole (Worcester Polytechnic Institute).</li>
     </ul>
     <ul class="s-compact-list">
       <li><strong>Journal Reviewer</strong> — MultiMedia Tools and Applications (2023, 2024); IEEE Design &amp; Test (2023).</li>
