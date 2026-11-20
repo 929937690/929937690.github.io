@@ -46,3 +46,41 @@ redirect_from:
     {% endif %}
   </div>
 </section>
+
+<section class="s-sec">
+  <div class="s-flanked"><h2>Open-Source Tools</h2></div>
+  <div class="s-bento">
+    <div class="s-card">
+      <div class="s-card__top">
+        <a class="s-card__name" href="https://github.com/V2A2/StarV">StarV ↗</a>
+        <span class="s-card__tag">Main Developer · CAV '25</span>
+      </div>
+      <p>Qualitative and quantitative verification framework for learning-enabled systems using Star and ProbStar reachability.</p>
+    </div>
+    <div class="s-card">
+      <div class="s-card__top">
+        <a class="s-card__name" href="https://github.com/verivital/nnv">NNV ↗</a>
+        <span class="s-card__tag">Contributor</span>
+      </div>
+      <p>Set-based verification toolbox for deep neural networks and learning-enabled autonomous cyber-physical systems.</p>
+    </div>
+  </div>
+</section>
+
+<section class="s-sec">
+  <div class="s-flanked"><h2>Teaching &amp; Academic Service</h2></div>
+  <div class="s-two-col">
+    <ul class="s-compact-list">
+      <li><strong>Guest Lecturer</strong> — CSCE 322 Programming Language Concepts (UNL, Spring '25); CSCE 460/860 Software Engineering for Robotics (UNL, Fall '24).</li>
+      <li><strong>Teaching Assistant (UF)</strong> — COP 5556 Programming Language Principles (Fall '26).</li>
+      <li><strong>Teaching Assistant (UNL)</strong> — CSCE 322 (Fall '24, Spring '25); CSCE 460/860 (Spring '23, '24, '25).</li>
+      <li><strong>Teaching Assistant (UNK)</strong> — CYBR 407 Intro Automata/Formal Language (Fall '20); CYBR 330 Algorithms &amp; Data Structures (Fall '20); CYBR 103 &amp; CYBR 101 (Spring '20).</li>
+      <li><strong>Mentoring</strong> — <em>M.S.:</em> Stuti Ruparel (UF); <em>Undergraduates:</em> Zou Li David, Nathan Chin-Lue, Son Tran, Benjamin Kojusner (UF); <em>REU:</em> Skyloer Cole (Worcester Polytechnic Institute).</li>
+    </ul>
+    <ul class="s-compact-list">
+      <li><strong>Journal Reviewer</strong> — MultiMedia Tools and Applications (2023, 2024); IEEE Design &amp; Test (2023).</li>
+      <li><strong>Conference Reviewer / PC</strong> — SAIV 2024, ERAS 2025, L4DC 2025, QEST+FORMATS 2025, L4DC 2026, NeuS 2026, SAIV 2026, CDC 2026, CAV 2026, L4DC 2027.</li>
+      <li><strong>Artifact Reviewer</strong> — FormaliSE 2024, QEST+FORMATS 2025, FormaliSE 2026, HSCC/ICCPS 2026, CAV 2026, HSCC/ICCPS 2027.</li>
+    </ul>
+  </div>
+</section>
