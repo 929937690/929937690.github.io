@@ -2,7 +2,7 @@
 
 Academic homepage built on Jekyll with a custom **`studio` (`Hybrid BD-1`)** editorial layout and BibTeX-driven publications powered by `jekyll-scholar`.
 
-`_bibliography/publications.bib` and `files/CV_YuntaoLi.pdf` are synced automatically from the private `929937690/cv-yuntaoli` repository via GitHub Actions — do not hand-edit them here.
+`_bibliography/publications.bib` and `files/CV_YuntaoLi.pdf` are synced automatically from `cv-yuntaoli/` in the private `929937690/personal` repository via GitHub Actions — do not hand-edit them here.
 
 ## Repository Structure
 
@@ -33,6 +33,6 @@ jekyll-env bundle exec jekyll serve --config _config.yml,_config_docker.yml --po
 
 GitHub Actions builds and deploys the site on pushes to `main`, manual `workflow_dispatch`, and daily at `06:00 UTC`:
 
-1. Checks out `929937690/cv-yuntaoli` via `secrets.CV_REPO_DEPLOY_KEY`.
-2. Strips any `@entry` tagged with `blind` in `keywords` when writing `_bibliography/publications.bib`, and copies `main.pdf` (the public CV edition) to `files/CV_YuntaoLi.pdf`.
+1. Sparse-checks out `cv-yuntaoli/` from `929937690/personal` via `secrets.PERSONAL_REPO_DEPLOY_KEY`.
+2. Strips any `@entry` tagged with `blind` in `keywords` when writing `_bibliography/publications.bib`, recompiles `main.pdf` automatically if `main.tex`/`publications.bib` was pushed from Overleaf without rebuilding the PDF, and copies `main.pdf` (the public CV edition) to `files/CV_YuntaoLi.pdf`.
 3. Builds with Ruby `3.4` (`JEKYLL_ENV=production bundle exec jekyll build`) and deploys `_site` to GitHub Pages (`https://929937690.github.io`).
